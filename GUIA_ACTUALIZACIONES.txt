@@ -1,0 +1,31 @@
+SUPREMO LÍDER — ACTUALIZACIONES SIN SERVIDOR
+=============================================
+
+IMPORTANTE: No ejecuta BAT, CMD, PowerShell, Python, XAMPP ni servicios.
+
+PRIMERA INSTALACIÓN DEL ACTUALIZADOR
+1. Descomprime el sistema Supremo Líder V1.2 que ya tienes.
+2. Abre ACTUALIZADOR_SUPREMO.html con doble clic en Chrome o Edge.
+3. Selecciona PARCHE_V1_2_A_V1_2_1_INSTALAR_ACTUALIZADOR.zip.
+4. Haz clic en "Seleccionar carpeta" y elige la carpeta raíz de Supremo Líder (la que contiene ABRIR_SIN_SERVIDOR.html).
+5. Autoriza a Chrome o Edge para modificar esa carpeta, verifica la lista y selecciona "Aplicar parche y crear respaldo".
+6. En la carpeta de Supremo Líder aparecerá ACTUALIZADOR_SUPREMO.html. Úsalo para siguientes parches; no necesitas el archivo externo.
+
+ACTUALIZACIONES FUTURAS
+1. Descarga únicamente el nuevo ZIP de parche.
+2. Abre ACTUALIZADOR_SUPREMO.html dentro de tu carpeta Supremo Líder.
+3. Selecciona ZIP y la misma carpeta; revisa la versión y confirma la aplicación.
+4. Se creará un respaldo bajo _RESPALDOS_SUPREMO antes de sobrescribir cualquier archivo.
+5. Cierra/reabre ABRIR_SIN_SERVIDOR.html. Si visualizas una versión anterior por caché, usa Ctrl+F5.
+
+SEGURIDAD
+- Los parches exigen manifiesto y hashes SHA-256; estos verifican integridad pero NO certifican la identidad del autor del parche.
+- No se borran archivos ni carpetas del usuario; los parches admiten solo añadir y reemplazar.
+- Si TI bloquea el permiso de escritura en Chrome, no es posible instalar automáticamente sin su autorización. No intentes eludirlo; copia manualmente los archivos del parche si está permitido.
+- No descargues parches de sitios desconocidos.
+- Guarda periódicamente el JSON de tus proyectos y tus fotografías originales.
+
+NOTAS
+- Este parche V1.2.1 únicamente instala el actualizador y el archivo de versión; NO cambia el diseño, los prompts ni la lógica de la campaña.
+- Chrome/Edge con File System Access API es necesario para escribir en carpeta desde HTML.
+- La interfaz también puede ejecutarse desde una ubicación local file://, sujeto a la política corporativa del navegador.

@@ -1,0 +1,143 @@
+{
+  "taskName": "Supremo Lider - Evolucion Horaria",
+  "stableBranch": "main",
+  "candidateBranchPrefix": "supremo/evolution/",
+  "maxCycleMinutes": 35,
+  "maxChangesPerCycle": 1,
+  "language": "es-MX",
+  "protectedPaths": [
+    "data/campana_2026.json",
+    "modulos/creative_v10/assets/productos/**",
+    "modulos/creative_v10/assets/identidad/**",
+    "scripts/**",
+    "evolution.config.json"
+  ],
+  "checks": [
+    {
+      "program": "python",
+      "args": [
+        "scripts/qa_static.py",
+        "--root",
+        "."
+      ]
+    }
+  ],
+  "backlog": [
+    {
+      "id": "EVO-01",
+      "priority": 1,
+      "status": "ready",
+      "area": "calidad",
+      "title": "Crear verificaciones de integridad reproducibles para cada módulo",
+      "acceptance": [
+        "La revisión identifica el archivo/módulo afectado",
+        "El manifiesto y la versión candidata concuerdan",
+        "No modifica productos, logotipos, QR ni claims comerciales"
+      ]
+    },
+    {
+      "id": "EVO-02",
+      "priority": 2,
+      "status": "ready",
+      "area": "prompt-studio",
+      "title": "Especificar cola local de prompts para Higgsfield con copiar y pegar controlado",
+      "acceptance": [
+        "Copia el prompt completo sin truncarlo",
+        "Mantiene SKU, referencias y formato asociados",
+        "El usuario revisa y decide si envía/genera"
+      ]
+    },
+    {
+      "id": "EVO-03",
+      "priority": 3,
+      "status": "ready",
+      "area": "image-editor",
+      "title": "Mejorar el contacto del producto insertado con el plano de apoyo",
+      "acceptance": [
+        "Comparar ruedas o patas con y sin calibración usando el mismo SKU y fondo",
+        "Vincular sombras de contacto al punto de apoyo y mantener la geometría oficial",
+        "Usar la misma composición en preview y PNG"
+      ]
+    },
+    {
+      "id": "EVO-07",
+      "priority": 3.5,
+      "status": "ready",
+      "area": "image-editor",
+      "title": "Ampliar la semilla reproducible de REA Geometric",
+      "acceptance": [
+        "Separar y guardar semillas de composición, color y campo junto al proyecto",
+        "Verificar cuatro propuestas visualmente distintas conservando bloqueos comerciales",
+        "Comprobar misma semilla con misma imagen y formatos distintos"
+      ]
+    },
+    {
+      "id": "EVO-04",
+      "priority": 4,
+      "status": "ready",
+      "area": "video-editor",
+      "title": "Diseñar pruebas deterministas para timeline, audio, sincronía y exportación MP4",
+      "acceptance": [
+        "Preview y export usan la misma composición",
+        "No recorta sujeto ni producto sin consentimiento",
+        "La mezcla no aumenta picos sobre el límite configurado"
+      ]
+    },
+    {
+      "id": "EVO-05",
+      "priority": 5,
+      "status": "ready",
+      "area": "library",
+      "title": "Mejorar búsqueda, carpetas y navegación de la biblioteca local",
+      "acceptance": [
+        "Conserva rutas/categorías al importar",
+        "No intenta cargar los 5,249 activos de una vez",
+        "Mantiene selección y filtros al paginar"
+      ]
+    },
+    {
+      "id": "EVO-06",
+      "priority": 6,
+      "status": "ready",
+      "area": "motion",
+      "title": "Evaluar render HTML/CSS/GSAP determinista como opción para motion graphics",
+      "acceptance": [
+        "HyperFrames/FFmpeg se añade sólo con licencia y dependencias revisadas",
+        "El modo 2D offline actual sigue disponible",
+        "Se registra el coste de memoria y tiempo de render"
+      ]
+    }
+  ],
+  "sourceRegistry": [
+    {
+      "name": "Impeccable",
+      "url": "https://github.com/pbakaus/impeccable",
+      "use": "Revisión de jerarquía, contraste, ritmo, espaciado y controles de interfaz; no instalar sin fijar versión/licencia."
+    },
+    {
+      "name": "UI UX Pro Max",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "use": "Guía y patrones de UI multi-plataforma como insumo de diseño, adaptados a las reglas MSCCS."
+    },
+    {
+      "name": "Taste Skill",
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "use": "Referencias y crítica anti-genérica para producir propuestas con identidad; no copiar páginas/activos ajenos."
+    },
+    {
+      "name": "Emil Kowalski skills",
+      "url": "https://github.com/emilkowalski/skills",
+      "use": "Microinteracciones, easing y criterios de animación con propósito; evitar animaciones que compitan con la tarea."
+    },
+    {
+      "name": "HyperFrames",
+      "url": "https://github.com/heygen-com/hyperframes",
+      "use": "Composición HTML y captura reproducible de frames para motion graphics; FFmpeg forma parte de la ruta de render."
+    },
+    {
+      "name": "FFmpeg skill",
+      "url": "https://github.com/kajisho5/ffmpeg-skill",
+      "use": "Flujos locales de edición/validación con FFmpeg; revisar release, licencia, dependencias y comandos antes de adoptarlo."
+    }
+  ]
+}

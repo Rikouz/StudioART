@@ -66,3 +66,30 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# Recursos locales y entregables
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.svg
+*.bmp
+*.ico
+*.mp4
+*.webm
+*.mov
+*.m4a
+*.mp3
+*.wav
+*.zip
+*.bundle
+.env
+.env.*
+upload/
+private/
+local-assets/
+projects/
+renders/
+__pycache__/
+node_modules/

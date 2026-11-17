@@ -1,0 +1,396 @@
+{
+  "name": "SUPREMO_LIDER_OFFLINE",
+  "version": "1.3.2",
+  "files": [
+    {
+      "file": "ABRIR_SIN_SERVIDOR.html",
+      "bytes": 338717,
+      "sha256": "f863661e7e6abf8b8bb4f7fdd60774c051a5c633d3c5133019bba0d324645409"
+    },
+    {
+      "file": "ACTUALIZADOR_SUPREMO.html",
+      "bytes": 16371,
+      "sha256": "73b26b6331a004cb446823a2042a100c99a116f3c424cc45ba6cf26e4fbf98d7"
+    },
+    {
+      "file": "GUIA_ACTUALIZACIONES.txt",
+      "bytes": 2136,
+      "sha256": "23bd6c9fc4178ec28963bb5d806c875840be4c4c3df2c509da7a7d24bd1d00d4"
+    },
+    {
+      "file": "LEEME_PRIMERO.md",
+      "bytes": 728,
+      "sha256": "00f614ec3b352a54eef37231813ece3d9074d318c54111dc7ce54eda3c121f4a"
+    },
+    {
+      "file": "VERSION_SUPREMO.json",
+      "bytes": 3068,
+      "sha256": "d78dc856d50ab347275ca34a04c288a7af361669d47bb3104beeaa2546ce1423"
+    },
+    {
+      "file": "css/editor-workspace.css",
+      "bytes": 3371,
+      "sha256": "6e4bd6994fdf36c6de32df838b6f21d200f25de51c608d9ab550b622c8012770"
+    },
+    {
+      "file": "css/fix_v1_1.css",
+      "bytes": 610,
+      "sha256": "47af2e8ba31141c2c20a7307f89237b2daabb15251e7db6113b6948c8b18448d"
+    },
+    {
+      "file": "css/supremo.css",
+      "bytes": 12302,
+      "sha256": "87a9b8724c8d21f4ec321f67a96cf47bf444808cb7fbff1bdd3995800ab1beec"
+    },
+    {
+      "file": "css/workspace.css",
+      "bytes": 5910,
+      "sha256": "946dfc94eb5f0a9b460cc764b0a0ca7b1c657eadc4f3aaf8cfd8e0cceba0cbea"
+    },
+    {
+      "file": "data/campana_2026.json",
+      "bytes": 325088,
+      "sha256": "5452f4279cdf7c4be77850e5c2c4f27d39ed9ed5d8faf1934f585f204f6a4c66"
+    },
+    {
+      "file": "data/efectos.json",
+      "bytes": 5547,
+      "sha256": "35705f4ce37f5a4ef290d29a1d7b0ecd80f365b6326b0cea3852184f60a96021"
+    },
+    {
+      "file": "docs/MAPA_C4_C8.md",
+      "bytes": 1983,
+      "sha256": "18c76f7f23f7b2e3e51682ecbab584c1b602f03edf843d124d763c8367f09a29"
+    },
+    {
+      "file": "docs/QA_REPORTE.md",
+      "bytes": 5121,
+      "sha256": "cc05910596d5164631e9d16ccc5e7db9a0ea25695105a203b880f6d88600625d"
+    },
+    {
+      "file": "docs/QA_SIN_SERVIDOR.md",
+      "bytes": 1419,
+      "sha256": "31009ce6b467a4c53297bd8e77c01743cba9d4aa2bad6023968f09dd560bbd02"
+    },
+    {
+      "file": "docs/ROADMAP_IMPLEMENTACION.md",
+      "bytes": 3877,
+      "sha256": "b7266f8b658b04468b17359c9cd38373d1b21941f9edcc6846a148ba20c42188"
+    },
+    {
+      "file": "docs/SPEC_SUPREMO_LIDER_V1.md",
+      "bytes": 12532,
+      "sha256": "0da214fc408096066dd7555448079def4ac816ce3d3adfdd08e20e29e82abba0"
+    },
+    {
+      "file": "fonts/IBMPlexSans.ttf",
+      "bytes": 537244,
+      "sha256": "3b031aa4216174205bd8471f88a49b91f093169e9e87bd5262242bc5967fe2e3"
+    },
+    {
+      "file": "fonts/OFL-IBM-Plex.txt",
+      "bytes": 4363,
+      "sha256": "37784b44044a4ffd9256702b7c0982c37e5c8887ba90c6dca0479aea93dc898d"
+    },
+    {
+      "file": "fonts/OFL-Saira.txt",
+      "bytes": 4403,
+      "sha256": "0e2ccc5da1dd979f08ba82bca2fb61592506a1e58d3cbfc26d904f0db71bd812"
+    },
+    {
+      "file": "fonts/SairaSemiCondensed-ExtraBold.ttf",
+      "bytes": 97340,
+      "sha256": "3a394a5b48a6838c6c2002f0c585af690e41ae23a8a8d923e02009d09fafbadd"
+    },
+    {
+      "file": "index.html",
+      "bytes": 338717,
+      "sha256": "f863661e7e6abf8b8bb4f7fdd60774c051a5c633d3c5133019bba0d324645409"
+    },
+    {
+      "file": "js/app.js",
+      "bytes": 30622,
+      "sha256": "f8537ada9ba23a5eaa5c5e43b4f27b6d4b998e98adaa36d79b087858a68f8ad0"
+    },
+    {
+      "file": "js/browser_render.js",
+      "bytes": 4973,
+      "sha256": "f012c6dc0d4a788494771c355a1f40738b56999308ab05c7b39eafb189f3ecbb"
+    },
+    {
+      "file": "js/camera.js",
+      "bytes": 15913,
+      "sha256": "59e362036c1da6657057b2cf52a089bbff28fbe83e02ef55613c7ca322513f1b"
+    },
+    {
+      "file": "js/carousel.js",
+      "bytes": 24102,
+      "sha256": "9989b902d3f9e62443e2fe7adca01b1f7b18e475edbbaa1e8092f90be9e76d05"
+    },
+    {
+      "file": "js/estudio_bridge.js",
+      "bytes": 9926,
+      "sha256": "7eefa611c3abcabf40f261e7d98ee5ad89149e144d15533faf41bdc56286e898"
+    },
+    {
+      "file": "js/inline_media.js",
+      "bytes": 41,
+      "sha256": "433508145d0ee6d6cbcf19be9da99d5a6a24897bab263b199554b4ebde93d50e"
+    },
+    {
+      "file": "js/library_catalog.js",
+      "bytes": 2338,
+      "sha256": "3cbac824e7a4f06f5845a9b6b5dcd6b102aee9aad7a10163ff6c37580726d1b9"
+    },
+    {
+      "file": "js/storage.js",
+      "bytes": 1512,
+      "sha256": "23f124c5550c9962a86b6fe932d3a4b6f13279af43a991df6b1e606a3bdd0060"
+    },
+    {
+      "file": "modulos/carrusel_v3/LEEME_V3.md",
+      "bytes": 1741,
+      "sha256": "69ae91f764845651b922ee6c27fdf76bbbf267316e22d193416e00ad876274ce"
+    },
+    {
+      "file": "modulos/carrusel_v3/MSCCS_EDITOR_AUTONOMO_V3.html",
+      "bytes": 55944,
+      "sha256": "dd37170b2c27cfceb7ed57a1efafb59c7df02ed6242c9b9294c790122dd12b6c"
+    },
+    {
+      "file": "modulos/carrusel_v3/editor.html",
+      "bytes": 61670,
+      "sha256": "925f7050448608440d058f29cc2e075ae01a9a22f134374ab3414be1db4d8f9e"
+    },
+    {
+      "file": "modulos/carrusel_v3/publicacion/LEEME.txt",
+      "bytes": 664,
+      "sha256": "ff0bcc5eb724ae1f23e916a7b33e7c984d0ae58c3b883ae076daa45a464f2b77"
+    },
+    {
+      "file": "modulos/carrusel_v3/publicacion/index.html",
+      "bytes": 59333,
+      "sha256": "7309bad0467160ad9a889783ac0fa8539cbf4f5c1c8e2637eb5d38293ead045f"
+    },
+    {
+      "file": "modulos/creative_v10/ABRIR_EDITOR.html",
+      "bytes": 17322,
+      "sha256": "d571b14daeeee43616f9f609763ce91da10fc4b72eb493cb66e926e8986c1f12"
+    },
+    {
+      "file": "modulos/creative_v10/LEEME_PRIMERO.md",
+      "bytes": 6215,
+      "sha256": "929c9f52816f9d8e3e0abadb4cc3f66489266075bfdca0948bde2316c80a4227"
+    },
+    {
+      "file": "modulos/creative_v10/css/studio.css",
+      "bytes": 11528,
+      "sha256": "67547533efcca1587fdb63870108eb18c32f74d45344483462b3886f8c6e1ef0"
+    },
+    {
+      "file": "modulos/creative_v10/data/campana_2026.js",
+      "bytes": 315692,
+      "sha256": "cda28824b66eb68477532378ff5d94b6984468f5e7febb69cffe6c2dc22c1ab0"
+    },
+    {
+      "file": "modulos/creative_v10/data/campana_2026.json",
+      "bytes": 325088,
+      "sha256": "5452f4279cdf7c4be77850e5c2c4f27d39ed9ed5d8faf1934f585f204f6a4c66"
+    },
+    {
+      "file": "modulos/creative_v10/data/efectos.js",
+      "bytes": 3929,
+      "sha256": "55d6476a58ddb403b4be6b83aa6e0798a21b514b4350899013c22ab55a496445"
+    },
+    {
+      "file": "modulos/creative_v10/data/efectos.json",
+      "bytes": 5547,
+      "sha256": "35705f4ce37f5a4ef290d29a1d7b0ecd80f365b6326b0cea3852184f60a96021"
+    },
+    {
+      "file": "modulos/creative_v10/data/plantilla_proyecto.json",
+      "bytes": 212,
+      "sha256": "097bd7d1eb357760495f32291c6fa4731392f9e5c77164d5c584beb7f937c73f"
+    },
+    {
+      "file": "modulos/creative_v10/data/schema_proyecto.json",
+      "bytes": 971,
+      "sha256": "52260f976a90d158b807b4a3b81dfbb038bb59ad688b846d74927b6b59657bf2"
+    },
+    {
+      "file": "modulos/creative_v10/docs/ARQUITECTURA_Y_ROADMAP.md",
+      "bytes": 1845,
+      "sha256": "01156d6853c673d58f57f86ce3b053d0c388d0fd001b20058734f9504840a4ef"
+    },
+    {
+      "file": "modulos/creative_v10/docs/QA_REPORTE_V10.md",
+      "bytes": 2568,
+      "sha256": "49f2b8f954c2ec611439aa72a63bab85aa42ef3e2cd4ca0098e2b53d654742f8"
+    },
+    {
+      "file": "modulos/creative_v10/js/studio.js",
+      "bytes": 78144,
+      "sha256": "10c93ada3e4b7822894f53c82a7a0fbbb10ebe31889b9c2749c1d31dc75c0285"
+    },
+    {
+      "file": "modulos/editorial_v10/ABRIR_PRIMERO.html",
+      "bytes": 2003,
+      "sha256": "8bb3b5d55770e7d0c7f9d3794d4a859302de46a6b9b8994bd462a89f99010041"
+    },
+    {
+      "file": "modulos/editorial_v10/FUNDAMENTO_DISENO_Y_MARKETING.md",
+      "bytes": 4091,
+      "sha256": "d8db52f78be7789547e7f3f5ae9a18b08ac01a1d113e0e0b2a701ed00779591f"
+    },
+    {
+      "file": "modulos/editorial_v10/LEEME_PRIMERO.md",
+      "bytes": 4827,
+      "sha256": "d14f963e1ece0fc5918c1b9bf64234d96a0bbb2d05c9cfe3df3c4f9e70189674"
+    },
+    {
+      "file": "modulos/editorial_v10/MSCCS_EDITORIAL_STUDIO_V10_OFFLINE.html",
+      "bytes": 56069,
+      "sha256": "81f1f9e0d284ffd1d8d85a3e2d687f93c4c4c5d42252ab82398a021b30f756c0"
+    },
+    {
+      "file": "modulos/editorial_v10/editor_runtime.js",
+      "bytes": 40553,
+      "sha256": "452ce23a62a5e1d2d659ed482e82537835df6a0e138dfbdd944af62c2c31cf39"
+    },
+    {
+      "file": "modulos/estudio_v5/ESTUDIO_V5.html",
+      "bytes": 157978,
+      "sha256": "f3692801a1526cb5aa82c32f8cd5088400a872d3ac4e39046e2b5573b589c408"
+    },
+    {
+      "file": "modulos/estudio_v5/INTEGRACION_PHOTOCRAFT.txt",
+      "bytes": 1475,
+      "sha256": "838c8a5ed35640115f8b49eba1f6770cd078d5be393841fec2c6b042aa703ac8"
+    },
+    {
+      "file": "modulos/estudio_v5/LICENSE_PHOTOCRAFT_MIT.txt",
+      "bytes": 1102,
+      "sha256": "1a8f66d8a86b146f5336fa0d4b1186576c8aa98e60823080c85c7811cfd810af"
+    },
+    {
+      "file": "js/camera_effects.js",
+      "bytes": 7633,
+      "sha256": "e4e00a1a31e648adfac4b84067f6a539544c236a459cc5d908c0dfd6646186c0"
+    },
+    {
+      "file": "docs/PLAN_EFECTOS_VIDEO.md",
+      "bytes": 9471,
+      "sha256": "7738a0e3dc9e2a12111b58c1cb8fd291cba9f6a3b1704afa9df943087265202d"
+    },
+    {
+      "file": "docs/MATRIZ_QA_OFFLINE_SUPREMO.md",
+      "bytes": 8442,
+      "sha256": "826279d93109e01334069a177899db5d3df9fd07ec55cd91ba5ae77d92b5390f"
+    },
+    {
+      "file": "modulos/estudio_v5/design_engine.js",
+      "bytes": 12775,
+      "sha256": "9ef096ab79d3e16197693d380a620a883516ae8cc2ef96d59429105a345f0fea"
+    },
+    {
+      "file": "docs/APENDICE_DISENO_1_3.md",
+      "bytes": 8791,
+      "sha256": "fbf6353707fc722849056ff496c43aab57622f5a8684576b6def9f18e344700c"
+    },
+    {
+      "file": "sources.lock.json",
+      "bytes": 1373,
+      "sha256": "a624be9b713d1b2e0b6e5466278090d725e799d229663823f0b6f9c92f3f4e25"
+    },
+    {
+      "file": "js/video_export.js",
+      "bytes": 2246,
+      "sha256": "221ccf4799a74f2e2e1d11fbbbf2ec5d1e484daa3e09d175f9a65d7b34b53a3c"
+    },
+    {
+      "file": "modulos/estudio_v5/primitive_engine.js",
+      "bytes": 5714,
+      "sha256": "ff27e6638bc7dc6c70a28f503478a438735089267bcaeece3869ae565a8f55ae"
+    },
+    {
+      "file": "qa/primitive_engine.cjs",
+      "bytes": 2616,
+      "sha256": "97cc5817752392b87a5f0d23f2c04efec1815c0d2ab30fc0f43b70d1298e3ec1"
+    },
+    {
+      "file": "qa/design_maps.cjs",
+      "bytes": 1176,
+      "sha256": "b2d8c5cf1ea994685d22bab7c28057623aac52277f2ba5a88bc1449a99cd4da7"
+    },
+    {
+      "file": "qa/video_motion.cjs",
+      "bytes": 5032,
+      "sha256": "153e27a419126efc4d42598161bc852ccf0874d0d48959903ecb519f7797ebee"
+    },
+    {
+      "file": "qa/video_export.cjs",
+      "bytes": 3516,
+      "sha256": "7952bc9b3c140852ad21be17228002361b5d1d0f49d65001a9ef88cfb8dcddf9"
+    },
+    {
+      "file": "qa/legacy_seed3.cjs",
+      "bytes": 1846,
+      "sha256": "1de645b67e9efdf330be6cd31d13a61bb5700dd93a3f34eddac3df225a615001"
+    },
+    {
+      "file": "scripts/qa_all.py",
+      "bytes": 1086,
+      "sha256": "775bef65d20a931f6d29f9137c8bacfa1967a240bf977a6780d3e367464fd9a3"
+    },
+    {
+      "file": "docs/AUDITORIA_1_3_1.md",
+      "bytes": 6736,
+      "sha256": "4eafa723c9c050be85f819b852dabb80fff616d06eeb67cf99165ea37a653483"
+    },
+    {
+      "file": "js/layer_motion.js",
+      "bytes": 10568,
+      "sha256": "5fb6ef4662e8ac0c2228049cd9355ffca21422b332c6c41dd8088b122eb48fdf"
+    },
+    {
+      "file": "scripts/build_portable.py",
+      "bytes": 3598,
+      "sha256": "8839972995f1f9748289cc3ae039709e9c32e4e1b1854b1b28c842ef1273c31b"
+    },
+    {
+      "file": "qa/layer_motion.cjs",
+      "bytes": 3852,
+      "sha256": "57c2b1dc084f9e42ed3b129cd371fbec89f61e5b3f65a61492030401600cf0bd"
+    },
+    {
+      "file": "qa/scene_bridge.cjs",
+      "bytes": 1862,
+      "sha256": "6af491e4ea3343479698601fa51158a9b23e25f211e6bad14432c0bf50bab684"
+    },
+    {
+      "file": "qa/portable_package.py",
+      "bytes": 1796,
+      "sha256": "2e0e40689a31fac733037edf86db591d4ea5330809eb3df8699605ac546a3d93"
+    },
+    {
+      "file": "qa/browser_audit.js",
+      "bytes": 7680,
+      "sha256": "d7d0e9aa0569899cd260da93a9915834955819e7fb87691d3146504647956a1c"
+    },
+    {
+      "file": "STUDIOART_PORTATIL.html",
+      "bytes": 3704177,
+      "sha256": "350357edd8e5a7e4e01b0a5c53dc9c2b936383c80b6c91de81a2ff584556bef8"
+    },
+    {
+      "file": "AUDITORIA_AUTOMATICA.html",
+      "bytes": 3819457,
+      "sha256": "6f5d520fb6e14a81f182bc9307e3ff37cbd28df0ad85c27631d499c853b20fd9"
+    },
+    {
+      "file": "docs/AUDITORIA_1_3_2.md",
+      "bytes": 8636,
+      "sha256": "54ed39a7f6212c974693e9840dc777ca5f645f774bd90e6a661be9e65e9d75db"
+    }
+  ]
+}

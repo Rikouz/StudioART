@@ -1,0 +1,5 @@
+/* Aviso de acceso directo corregido V1.1 */
+.offline-banner{position:relative;z-index:999;display:flex;align-items:center;gap:10px;padding:12px 20px;background:#173039;color:#f1f4f6;border-bottom:1px solid #557987;font:13px/1.4 system-ui, sans-serif;flex-wrap:wrap}
+.offline-banner button{background:#b7edf2;color:#11252c;border:0;padding:6px 10px;font-weight:650;border-radius:5px;cursor:pointer}
+.offline-banner #offlineDismiss{margin-left:auto;background:transparent;color:#f6f8fa;font-size:20px;border:1px solid #527181}
+body:has(.offline-banner[style*="display: flex"]) .shell{height:calc(100vh - 54px)}

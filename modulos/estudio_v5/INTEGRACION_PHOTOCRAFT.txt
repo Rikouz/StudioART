@@ -1,0 +1,18 @@
+Supremo Líder · Integrar con la escena
+
+En Pro, abre Calibración y luego Integrar con la escena.
+1. Marca las ruedas sobre el recorte. Marca en la foto el apoyo de la primera.
+2. Marca el segundo apoyo para comprobar la coincidencia. Ajusta escala o toma si hay discrepancia.
+3. Muestrea una superficie neutra de la foto que reciba luz comparable. Ajusta la intensidad de igualación y la limpieza de borde.
+4. Si algún elemento del fondo queda por delante del producto, marca su contorno como máscara de primer plano.
+5. Revisa el aviso de ampliación del fondo y guarda el proyecto. La escena y sus muestras se guardan en el JSON.
+
+El color y la limpieza de borde se calculan sobre una copia del recorte. El ajuste de color limita la transferencia sobre colores saturados. La máscara de borde conserva los valores alfa del recorte de trabajo. El modo de calibración comprueba puntos seleccionados por la persona. La integración visual debe comprobarse con la foto y el SKU originales.
+
+Código adaptado de PhotoCraft, commit 1247303e781859384f83cdb1651b75d191e7b77e.
+- crates/algo/src/tone.rs · lab_stats y match_color
+- crates/color/src/convert.rs · conversiones sRGB y Lab D50
+- crates/engine/src/cmd/layer_menu_cmds.rs · propagación de color en defringe
+https://github.com/storytold/photocraft/tree/1247303e781859384f83cdb1651b75d191e7b77e
+Copyright (c) 2026 ArtCraft Team and the PhotoCraft contributors.
+Licencia MIT adjunta en LICENSE_PHOTOCRAFT_MIT.txt.

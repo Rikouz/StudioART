@@ -1,0 +1,230 @@
+{
+  "schemaVersion": "10.0",
+  "source": "Implementaciones originales inspiradas en las denominaciones del video de referencia, no código extraído",
+  "effects": [
+    {
+      "id": "none",
+      "name": "Sin efecto",
+      "group": "Base",
+      "video": true,
+      "image": true,
+      "description": "Imagen sin alteraciones"
+    },
+    {
+      "id": "liveCursor",
+      "name": "Live cursor",
+      "group": "Interfaz",
+      "video": true,
+      "image": true,
+      "description": "Cursor vectorial desplazándose por la escena"
+    },
+    {
+      "id": "cloneRow",
+      "name": "Clone row",
+      "group": "Movimiento",
+      "video": true,
+      "image": true,
+      "description": "Duplicación en fila con opacidad descendente"
+    },
+    {
+      "id": "dayDial",
+      "name": "Day dial",
+      "group": "Tipográfico",
+      "video": true,
+      "image": true,
+      "description": "Dial de tiempo editorial"
+    },
+    {
+      "id": "predictKeys",
+      "name": "Predict keys",
+      "group": "Interfaz",
+      "video": true,
+      "image": true,
+      "description": "Teclas flotantes y resaltado"
+    },
+    {
+      "id": "orbitRing",
+      "name": "Orbit ring",
+      "group": "Movimiento",
+      "video": true,
+      "image": true,
+      "description": "Anillo orbitando el producto"
+    },
+    {
+      "id": "codeBody",
+      "name": "Code body",
+      "group": "Tipográfico",
+      "video": true,
+      "image": true,
+      "description": "Trama de código con transparencia"
+    },
+    {
+      "id": "postWall",
+      "name": "Post wall",
+      "group": "Revelados",
+      "video": true,
+      "image": true,
+      "description": "Muro de miniaturas en perspectiva simulada"
+    },
+    {
+      "id": "letterDive",
+      "name": "Letter dive",
+      "group": "Tipográfico",
+      "video": true,
+      "image": true,
+      "description": "Letras descendentes con easing"
+    },
+    {
+      "id": "commentDrop",
+      "name": "Comment drop",
+      "group": "Interfaz",
+      "video": true,
+      "image": true,
+      "description": "Comentario que entra verticalmente"
+    },
+    {
+      "id": "layerExplode",
+      "name": "Layer explode",
+      "group": "Movimiento",
+      "video": true,
+      "image": true,
+      "description": "Separación breve de capas de color"
+    },
+    {
+      "id": "sketchWords",
+      "name": "Sketch words",
+      "group": "Tipográfico",
+      "video": true,
+      "image": true,
+      "description": "Trazado progresivo de palabras"
+    },
+    {
+      "id": "bladeSlice",
+      "name": "Blade slice",
+      "group": "Revelados",
+      "video": true,
+      "image": true,
+      "description": "Corte editorial diagonal"
+    },
+    {
+      "id": "headStack",
+      "name": "Head stack",
+      "group": "Movimiento",
+      "video": true,
+      "image": true,
+      "description": "Tiras verticales duplicadas"
+    },
+    {
+      "id": "rackFocus",
+      "name": "Rack focus",
+      "group": "Cámara",
+      "video": true,
+      "image": true,
+      "description": "Cambio suave de enfoque simulado"
+    },
+    {
+      "id": "banknote",
+      "name": "Banknote",
+      "group": "Revelados",
+      "video": true,
+      "image": true,
+      "description": "Tarjeta ondulante de papel"
+    },
+    {
+      "id": "voiceNote",
+      "name": "Voice note",
+      "group": "Interfaz",
+      "video": true,
+      "image": true,
+      "description": "Ondas de audio animadas"
+    },
+    {
+      "id": "impactFrame",
+      "name": "Impact frame",
+      "group": "Cámara",
+      "video": true,
+      "image": true,
+      "description": "Golpe de escala y marco"
+    },
+    {
+      "id": "dollyZoom",
+      "name": "Dolly zoom",
+      "group": "Cámara",
+      "video": true,
+      "image": true,
+      "description": "Zoom compensado aproximado"
+    },
+    {
+      "id": "pressFront",
+      "name": "Press front",
+      "group": "Tipográfico",
+      "video": true,
+      "image": true,
+      "description": "Titular que avanza hacia cámara"
+    },
+    {
+      "id": "paperTear",
+      "name": "Paper tear",
+      "group": "Revelados",
+      "video": true,
+      "image": true,
+      "description": "Revelado con papel rasgado"
+    },
+    {
+      "id": "blowAway",
+      "name": "Blow away",
+      "group": "Revelados",
+      "image": true,
+      "video": true,
+      "description": "Fragmentos de rótulo que se dispersan con suavidad"
+    },
+    {
+      "id": "neonTrace",
+      "name": "Neon trace",
+      "group": "Branding",
+      "video": true,
+      "image": true,
+      "description": "Neón contenido sobre marco"
+    },
+    {
+      "id": "glassLine",
+      "name": "Glass line",
+      "group": "Branding",
+      "video": true,
+      "image": true,
+      "description": "Barra translúcida de borde fino"
+    },
+    {
+      "id": "gridTech",
+      "name": "Grid técnico",
+      "group": "Branding",
+      "video": true,
+      "image": true,
+      "description": "Retícula editorial de líneas finas"
+    },
+    {
+      "id": "spotlight",
+      "name": "Spotlight",
+      "group": "Cámara",
+      "video": true,
+      "image": true,
+      "description": "Luz localizada sin afectar la geometría"
+    },
+    {
+      "id": "filmGrain",
+      "name": "Film grain",
+      "group": "Cámara",
+      "video": true,
+      "image": true,
+      "description": "Textura de grano simulada"
+    },
+    {
+      "id": "parallax",
+      "name": "Parallax",
+      "group": "Movimiento",
+      "video": true,
+      "image": true,
+      "description": "Desplazamiento suave de cámara sin 3D real"
+    }
+  ]
+}

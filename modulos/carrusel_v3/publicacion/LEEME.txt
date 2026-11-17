@@ -1,0 +1,11 @@
+MSCCS · Carrusel inmersivo V3
+
+Contenido: index.html + assets/01.webp ... assets/18.webp.
+Publicación: descomprime y sube ambos elementos al mismo directorio en tu hosting.
+El carrusel conserva los cinco diseños, parallax, cursor de patita, transiciones y controles de navegación, sin los paneles del editor.
+Las palabras impresas en las imágenes forman parte de las fotografías y se mostrarán.
+
+Ejemplo de integración:
+<iframe src="/carruseles/shopmax/index.html" title="SHOPMAX" loading="lazy" style="border:0;width:100%;height:750px"></iframe>
+
+HTML autónomo: usar el archivo MSCCS_PUBLICACION_AUTONOMA_V3.html como un solo archivo sin carpeta assets.

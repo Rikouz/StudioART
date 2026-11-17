@@ -1,0 +1,32 @@
+{
+  "app": "SUPREMO_LIDER",
+  "version": "1.3.2",
+  "channel": "development-offline",
+  "installedVia": "supremo-patch-v1",
+  "changes": [
+    "Integra estudio creativo, composiciones vinculadas, protección del titular, seguimiento de sujetos y pulso de audio.",
+    "Integra igualación de color Lab y limpieza de borde adaptadas de PhotoCraft, con calibración de piso y máscara de primer plano.",
+    "Unifica el Estudio de imagen y las salidas vinculadas. Conserva una revisión por propuesta y restaura la línea de tiempo de video en la misma instalación.",
+    "Biblioteca por carpetas con paginación, espacio de edición fijo, paletas ampliadas, escenarios en Cámara y galería interactiva con patita.",
+    "Integra sugerencias de apoyo y ajuste proporcional por dos puntos; separa semillas de composición, color y campo; incorpora looks portátiles y campo condicionado por imagen.",
+    "Carrusel espera la revisión vigente de las imágenes antes de exportar PNG o video.",
+    "Cámara espera la revisión seleccionada y conserva imagen y ajustes durante la exportación PNG, GIF y video.",
+    "Biblioteca restaura carpeta, filtros, página y selección al recargar o importar un proyecto maestro.",
+    "Recupera los cinco efectos editables de Cámara de 1.2.7-motion.1 sobre la base con persistencia de Biblioteca.",
+    "Estudio: escala real y arrastre del logo, calibración reactiva y cuadros de texto con fondo independiente o vinculado al título.",
+    "Estudio: mapa de bordes Sobel, máximos locales y malla Delaunay de fondo con confianza y orientación de contorno.",
+    "Generación automática de cuatro propuestas con 18 categorías y motor de semilla versionado.",
+    "Paletas derivadas de imagen local, mapa de actividad y luminancia y colocación de títulos por búsqueda de espacio.",
+    "Formato libre, capas de formas editables, aproximación local del fondo con primitivas y exportación SVG.",
+    "30 familias con motor seed-4, mapa de márgenes y bandas libres; conserva semilla seed-3.",
+    "Capas: duplicado, historial por propuesta, visibilidad, rotación, dos ejes para formas y tipografía local.",
+    "Refinado incremental o Worker con rotación y alfa; progreso, cancelación, modelo guardado y SVG.",
+    "Nueve efectos compartidos entre Cámara y Video, temporizados y configurables por clip.",
+    "Video prepara el primer fotograma, difiere revisiones durante exportación y limita proporcionalmente la mezcla de audio.",
+    "Entrada portátil con CSS, tipografías, scripts y módulos integrados, y diagnóstico de recursos ausentes.",
+    "Doce efectos nuevos con planos, recortes, imágenes o audio reales; conserva los nueve efectos anteriores.",
+    "Máscaras poligonales de capas con persistencia; exportación de planos reales desde Estudio hacia Biblioteca y Video.",
+    "Animación multicapa con claves de posición, escala, rotación y opacidad y generación por semilla.",
+    "Arnés de auditoría automática local para Chrome/Edge, con medios sintéticos y base de prueba separada."
+  ]
+}

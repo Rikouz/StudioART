@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "reviewed": "2026-11-17",
+  "sources": [
+    {
+      "name": "Geometrize",
+      "url": "https://github.com/Tw1ddle/geometrize",
+      "use": "Referencia de algoritmo, exportación y arquitectura desktop",
+      "codeCopied": false
+    },
+    {
+      "name": "geometrize-lib",
+      "url": "https://github.com/Tw1ddle/geometrize-lib",
+      "use": "Referencia de hill-climbing sobre primitivas",
+      "codeCopied": false
+    },
+    {
+      "name": "Geometric manual",
+      "url": "https://geometric-art.com/en/manual",
+      "use": "Referencia de mapas, semilla y campos",
+      "codeCopied": false
+    }
+  ],
+  "localEngine": {
+    "path": "modulos/estudio_v5/design_engine.js",
+    "sha256": "9ef096ab79d3e16197693d380a620a883516ae8cc2ef96d59429105a345f0fea"
+  },
+  "additionalLocalEngines": [
+    {
+      "path": "modulos/estudio_v5/primitive_engine.js",
+      "sha256": "ff27e6638bc7dc6c70a28f503478a438735089267bcaeece3869ae565a8f55ae"
+    },
+    {
+      "path": "js/camera_effects.js",
+      "sha256": "e4e00a1a31e648adfac4b84067f6a539544c236a459cc5d908c0dfd6646186c0"
+    },
+    {
+      "path": "js/video_export.js",
+      "sha256": "221ccf4799a74f2e2e1d11fbbbf2ec5d1e484daa3e09d175f9a65d7b34b53a3c"
+    },
+    {
+      "path": "js/layer_motion.js",
+      "sha256": "5fb6ef4662e8ac0c2228049cd9355ffca21422b332c6c41dd8088b122eb48fdf"
+    }
+  ]
+}

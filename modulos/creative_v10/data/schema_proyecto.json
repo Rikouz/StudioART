@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MSCCS Creative Studio project v10",
+  "type": "object",
+  "required": ["schemaVersion", "name", "ratio", "layers", "timeline"],
+  "properties": {
+    "schemaVersion": {"type": "string", "pattern": "^10\\."},
+    "name": {"type": "string"},
+    "ratio": {"enum": ["4:5", "9:16", "16:9", "1:1", "3:4"]},
+    "template": {"type": "string"},
+    "conceptId": {"type": "string"},
+    "layers": {"type": "array", "items": {"type": "object", "required": ["id", "type", "x", "y"], "properties": {"id": {"type": "string"}, "type": {"enum": ["image", "text"]}, "x": {"type": "number"}, "y": {"type": "number"}, "visible": {"type": "boolean"}}}},
+    "timeline": {"type": "object", "required": ["clips", "overlays", "audio"], "properties": {"clips": {"type": "array"}, "overlays": {"type": "array"}, "audio": {"type": "array"}}},
+    "assetManifest": {"type": "array"}
+  },
+  "additionalProperties": true
+}

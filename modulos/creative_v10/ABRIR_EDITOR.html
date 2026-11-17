@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MSCCS — Creative Studio V10 Offline</title>
+<link rel="stylesheet" href="css/studio.css">
+<script defer src="data/campana_2026.js"></script>
+<script defer src="data/efectos.js"></script>
+<script defer src="../../js/layer_motion.js"></script>
+<script defer src="../../js/video_export.js"></script>
+<script defer src="../../js/camera_effects.js"></script>
+<script defer src="js/studio.js"></script>
+</head>
+<body>
+<header class="appbar">
+  <div class="identity"><span class="monogram">M<span class="monogram-dot">.</span></span><div><strong>MSCCS <span class="thin">CREATIVE STUDIO</span></strong><small>V10 / PRODUCCIÓN EDITORIAL OFFLINE</small></div></div>
+  <nav class="mode-switch" aria-label="Modo editor"><button id="modeArt" class="is-active">Diseño</button><button id="modeVideo">Video</button></nav>
+  <div class="app-actions"><button id="btnNew">Nuevo</button><button id="btnOpenProject">Importar proyecto</button><button id="btnSaveJson">JSON</button><button id="btnSaveBundle" class="secondary">ZIP portátil</button><button id="btnExportImage" class="primary">Exportar imagen</button><button id="btnExportVideo" hidden class="primary">Exportar video</button><input type="file" id="projectFile" accept=".json,.zip,application/json,application/zip" hidden></div>
+</header>
+<div class="workspace">
+ <aside class="rail left-rail">
+  <div class="rail-heading"><div><span class="overline">BIBLIOTECA</span><h2>Proyecto y recursos</h2></div><span class="counter" id="conceptCount">17</span></div>
+  <div class="left-tabs"><button class="on" data-left="concepts">Campaña</button><button data-left="media">Medios</button><button data-left="assets">Identidad</button></div>
+  <div id="leftConcepts" class="scroll left-content">
+    <div class="field"><label for="filterBrand">Línea comercial</label><select id="filterBrand"><option value="">SHOPMAX + YARDMAX</option><option value="SHOPMAX">SHOPMAX</option><option value="YARDMAX">YARDMAX</option></select></div>
+    <div class="field"><input id="searchConcept" type="search" placeholder="SKU, gancho, escenario..."></div>
+    <div id="conceptList" class="concept-list"></div>
+  </div>
+  <div id="leftMedia" class="scroll left-content" hidden>
+    <p class="muted">Agrega imágenes, clips y audios desde tu equipo. No se suben a servidores.</p>
+    <div class="button-stack"><label class="button secondary file-btn">Importar medios <input type="file" id="mediaFile" accept="image/*,video/*,audio/*" multiple></label><label class="button file-btn">Importar carpeta <input type="file" id="folderFile" webkitdirectory directory multiple></label></div>
+    <div id="mediaList" class="media-list"></div>
+  </div>
+  <div id="leftAssets" class="scroll left-content" hidden>
+    <p class="muted">Logo, distintivo Buen Fin y QR originales. Sustituye cualquiera sin afectar el resto de la campaña.</p>
+    <div class="asset-list" id="identityList"></div>
+    <hr><h3>Fotografía oficial</h3><p class="muted">Referencia SKU: fotografía obligatoria. YARDMAX: recortes horneados con geometría aún pendiente de aprobación.</p><button id="btnUseOfficial">Cargar referencia del producto al lienzo</button>
+    <h3>Fuentes locales</h3><label class="button file-btn">Importar fuente (.ttf/.otf/.woff) <input type="file" id="fontFiles" accept=".ttf,.otf,.woff,.woff2" multiple></label><div id="fontList" class="muted"></div>
+  </div>
+  <div class="left-footer"><span class="tiny-mark"></span><span>Sin nube · Archivos locales · Sin generación IA</span></div>
+ </aside>
+ <main class="center">
+  <div class="canvas-bar">
+    <div class="format-wrap"><span>LIENZO</span><select id="ratio"><option>4:5</option><option>9:16</option><option>16:9</option><option>1:1</option><option>3:4</option></select><select id="resolution"><option value="preview">1080 / Previsualización</option><option value="4k">Alta resolución / 4K</option></select></div>
+    <div class="canvas-tools"><button id="btnGuides" title="Mostrar guías">Guías</button><button id="btnUndo" title="Deshacer">↶</button><button id="btnRedo" title="Rehacer">↷</button><span id="zoomLabel">100%</span></div>
+  </div>
+  <div class="canvas-scroll"><div class="canvas-stage"><div class="canvas-frame"><canvas id="mainCanvas" width="1080" height="1350" aria-label="Lienzo editable de campaña MSCCS"></canvas></div></div></div>
+  <div class="statusbar"><div id="statusText">Abre una fotografía y selecciona una capa para comenzar.</div><div id="sizeText">1080 × 1350</div></div>
+  <section class="timeline-shell" id="timelineShell" hidden>
+    <div class="timeline-top"><strong>LÍNEA DE TIEMPO</strong><div class="controls-inline"><button id="playPause">▶ Reproducir</button><button id="splitClip">Dividir</button><button id="copyClip">Copiar</button><button id="pasteClip">Pegar</button><button id="removeClip">Eliminar</button><span id="timeDisplay">00:00.0 / 00:00.0</span></div></div>
+    <input type="range" id="scrubber" min="0" max="1000" value="0" step="1" aria-label="Posición de reproducción">
+    <div id="videoTrack" class="track"><span class="track-label">VIDEO</span><div class="track-items" id="clipList"></div></div>
+    <div id="overlayTrack" class="track"><span class="track-label">CAPAS</span><div class="track-items" id="overlayList"></div></div>
+    <div id="audioTrack" class="track"><span class="track-label">AUDIO</span><div class="track-items" id="audioList"></div></div>
+    <div class="timeline-actions"><button id="addTextOverlay">+ Texto temporizado</button><button id="addLogoOverlay">+ Logo / QR</button><button id="addAudio">+ Audio</button><button id="addImageClip">+ Imagen como clip</button><span class="muted" id="timelineInfo">Selecciona un recurso y añádelo al timeline desde la biblioteca de medios.</span></div>
+  </section>
+ </main>
+ <aside class="rail right-rail scroll">
+  <div class="rail-heading"><div><span class="overline">INSPECTOR</span><h2>Dirección de arte</h2></div><span class="counter">V10</span></div>
+  <section class="inspector-section"><h3>Composición</h3>
+    <div class="field-row"><div class="field"><label for="template">Plantilla</label><select id="template"><option value="msccs">MSCCS Clean</option><option value="cream">Cream Editorial</option><option value="architect">Architectural</option><option value="void">Void Reveal</option><option value="retail">Retail Precision</option></select></div><div class="field"><label for="fit">Fotografía</label><select id="fit"><option value="contain">Contener / no recortar</option><option value="cover">Cubrir</option></select></div></div>
+    <div class="field-row"><div class="field"><label for="bgColor">Fondo</label><input id="bgColor" type="color" value="#f5f5f1"></div><div class="field"><label for="imageBrightness">Luz imagen <output id="brightnessOut">100%</output></label><input id="imageBrightness" type="range" min="60" max="140" value="100"></div></div>
+    <div class="field-row"><div class="field"><label>Marco general<select id="outerFrame"><option value="none">Sin marco</option><option value="hairline">Línea editorial</option><option value="double">Doble hairline</option><option value="neon">Neón cian</option><option value="glow">Resplandor tenue</option></select></label></div><div class="field"><label>Margen marco <output id="frameInsetOut">4%</output></label><input type="range" id="outerInset" min="1" max="16" value="4"></div></div>
+    <div class="field-row"><div class="field"><label for="imageContrast">Contraste <output id="contrastOut">100%</output></label><input id="imageContrast" type="range" min="70" max="135" value="100"></div><div class="field"><label for="imageSharp">Claridad (previsualización)</label><input id="imageSharp" type="range" min="0" max="100" value="0"></div></div>
+  </section>
+  <section class="inspector-section"><h3>Capas <span id="layerCount" class="count-note">6</span></h3><div id="layerList" class="layer-list"></div><div class="controls-inline"><button id="addText">+ Texto</button><button id="addImageLayer">+ Imagen</button><button id="duplicateLayer">Duplicar</button><button id="deleteLayer">Borrar</button></div></section>
+  <section class="inspector-section" id="layerInspector"><h3>Capa seleccionada <span id="selectedLayerLabel" class="count-note">Titular</span></h3>
+    <div class="field"><label for="layerText">Contenido de texto</label><textarea rows="2" id="layerText" placeholder="Texto de la capa"></textarea></div>
+    <div class="field-row"><div class="field"><label>X % <input type="number" id="posX" min="-40" max="140" step="0.2"></label></div><div class="field"><label>Y % <input type="number" id="posY" min="-40" max="140" step="0.2"></label></div><div class="field"><label>Escala % <input type="number" id="layerScale" min="10" max="450" step="1"></label></div></div>
+    <div class="field-row"><div class="field"><label for="layerOpacity">Opacidad <output id="opacityOut"></output></label><input type="range" id="layerOpacity" min="0" max="100"></div><div class="field"><label for="layerRotate">Rotación °</label><input type="number" id="layerRotate" min="-180" max="180" step="1"></div></div>
+    <div class="field-row"><div class="field"><label>Fuente<select id="layerFont"><option value="Saira">Saira / instalada</option><option value="Impact">Impact</option><option value="Arial Black">Arial Black</option><option value="Arial">Arial</option><option value="Georgia">Georgia</option><option value="Times New Roman">Times New Roman</option></select></label></div><div class="field"><label>Tamaño de texto <input type="number" id="layerFontSize" min="12" max="250" step="1"></label></div></div>
+    <div class="field-row"><div class="field"><label>Color<input type="color" id="layerColor"></label></div><div class="field"><label>Grosor<select id="layerWeight"><option value="400">400 Regular</option><option value="500">500 Medium</option><option value="600">600 Semibold</option><option value="700">700 Bold</option><option value="800">800 ExtraBold</option><option value="900">900 Black</option></select></label></div><div class="field"><label>Alineación<select id="layerAlign"><option value="left">Izquierda</option><option value="center">Centro</option><option value="right">Derecha</option></select></label></div></div>
+    <div class="field-row"><div class="field"><label>Separación letras<input type="number" id="layerTracking" min="-2" max="15" step=".5"></label></div><div class="field"><label>Interlineado<input type="number" id="layerLineHeight" min=".7" max="2" step=".05"></label></div></div>
+    <div class="field-row"><div class="field"><label>Marco<select id="layerFrame"><option value="none">Sin marco</option><option value="hairline">Línea fina</option><option value="glass">Vidrio tenue</option><option value="solid">Placa sólida</option><option value="neon">Neón perimetral</option></select></label></div><div class="field"><label>Brillo<select id="layerGlow"><option value="none">Sin brillo</option><option value="soft">Sombra suave</option><option value="neon">Neón puntual</option></select></label></div></div>
+    <div class="field-row"><div class="field"><label>Desenfoque marco <input type="range" id="layerBlur" min="0" max="30"></label></div><div class="field"><label>Margen marco <input type="range" id="layerPad" min="0" max="90"></label></div></div>
+    <div class="field-row compact"><label><input type="checkbox" id="layerVisible"> Visible</label><label><input type="checkbox" id="layerLocked"> Bloqueada</label></div>
+  </section>
+  <section class="inspector-section"><div class="section-head"><h3>Biblioteca de efectos <span id="effectCount" class="count-note"></span></h3><button id="btnPreviewEffect">▶ Preview</button></div>
+    <div class="field-row"><div class="field"><label for="effectSearch">Buscar efecto</label><input id="effectSearch" type="search" placeholder="Orbit, rack, post..."></div><div class="field"><label for="effectIntensity">Intensidad <output id="intensityOut">40%</output></label><input id="effectIntensity" type="range" min="0" max="100" value="40"></div></div>
+    <div id="effectsList" class="effects-list"></div><p class="muted">Efectos originales en Canvas 2D. Puedes aplicarlos a imagen o clip; no se copió código propietario del video de referencia.</p>
+  </section>
+  <section class="inspector-section"><h3>Datos y prompts</h3><div class="controls-inline"><button id="copyCleanPrompt">Copiar foto limpia</button><button id="copyTextPrompt">Copiar con letras</button><button id="exportPrompts">Exportar prompts JSON</button></div><div class="field"><label>Prompt actual</label><textarea id="promptPreview" rows="4" readonly></textarea></div>
+   <div class="field-row"><div class="field"><label>Frame F01–F10</label><select id="frameSelect"><option value="0">F01</option><option value="1">F02</option><option value="2">F03</option><option value="3">F04</option><option value="4">F05</option><option value="5">F06</option><option value="6">F07</option><option value="7">F08</option><option value="8">F09</option><option value="9">F10</option></select></div><div class="field"><label>Prompt de fotograma</label><button id="copyFramePrompt">Copiar FXX</button></div></div>
+   <div class="field"><textarea id="framePromptPreview" rows="3" readonly></textarea></div>
+  </section>
+  <section id="clipInspector" class="inspector-section" hidden><h3>Edición del clip</h3>
+   <div class="field-row"><div class="field"><label>Entrada (s)<input type="number" id="trimStart" step="0.05" min="0"></label></div><div class="field"><label>Salida (s)<input type="number" id="trimEnd" step="0.05" min="0"></label></div></div>
+   <div class="field-row"><div class="field"><label>Velocidad<select id="clipSpeed"><option value=".5">0.5×</option><option value="1">1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label></div><div class="field"><label>Efecto<select id="clipEffect"></select></label></div></div>
+   <div class="field-row"><label>Texto del efecto<input id="clipMotionText" maxlength="80" placeholder="Texto editable"></label><label>Intensidad<input id="clipMotionAmount" type="range" min="0" max="100" value="65"></label></div>
+<div class="field-row"><label>Inicio del efecto (s del clip)<input id="clipMotionStart" type="number" min="0" step="0.1" value="0"></label><label>Duración del efecto (s)<input id="clipMotionDuration" type="number" min="0.1" step="0.1" value="3"></label></div>
+<div class="field-row compact"><label><input type="checkbox" id="clipMute"> Silenciar clip</label><label>Volumen<input type="range" id="clipVolume" min="0" max="100" value="100"></label></div>
+   <details><summary>Animación multicapa</summary><label>Plano<select id="motionPlane"></select></label><label>Instante del clip (s)<input id="planeTime" type="number" min="0" value="0" step="0.1"></label><div class="field-row"><label>X (%)<input id="planeX" type="number" value="0"></label><label>Y (%)<input id="planeY" type="number" value="0"></label></div><div class="field-row"><label>Escala<input id="planeScale" type="number" min="0.01" max="10" step="0.01" value="1"></label><label>Rotación<input id="planeRotation" type="number" value="0"></label></div><label>Opacidad (%)<input id="planeOpacity" type="range" min="0" max="100" value="100"></label><button id="savePlaneKey">Guardar fotograma clave</button><button id="removePlaneKey">Quitar fotograma clave</button><p id="planeKeys"></p><label>Semilla de movimiento y efecto<input id="planeSeed" type="number" value="24"></label><button id="seedPlaneMotion">Generar movimiento por semilla</button><p>La generación conserva producto, logo y QR; anima los demás planos.</p></details>
+<button id="analyzeVoice">Analizar audio de la pista</button><p id="layerMotionStatus" role="status"></p>
+<div class="controls-inline"><button id="clipMoveLeft">← Mover</button><button id="clipMoveRight">Mover →</button></div>
+  </section>
+  <section id="audioInspector" class="inspector-section" hidden><h3>Edición del audio</h3>
+   <div class="field-row"><div class="field"><label>Inicio en línea (s)<input id="audioStart" type="number" min="0" step="0.1"></label></div><div class="field"><label>Fin en línea (s)<input id="audioEnd" type="number" min="0" step="0.1"></label></div></div>
+   <div class="field-row compact"><label>Volumen <input id="audioVolume" type="range" min="0" max="100"></label><label><input id="audioMute" type="checkbox"> Silenciar</label></div>
+  </section>
+  <section id="overlayInspector" class="inspector-section" hidden><h3>Tiempo de sobreimpreso</h3>
+   <div class="field-row"><div class="field"><label>Comienza (s)<input id="overlayStart" type="number" min="0" step=".1"></label></div><div class="field"><label>Termina (s)<input id="overlayEnd" type="number" min="0" step=".1"></label></div></div>
+   <div class="field"><label>Texto / etiqueta<input id="overlayText" type="text"></label></div>
+  </section>
+ </aside>
+</div>
+<video id="sourceVideo" playsinline preload="metadata" style="display:none"></video>
+<audio id="sourceAudio" preload="metadata" style="display:none"></audio>
+<div id="toast" role="status" aria-live="polite"></div>
+</body></html>
