@@ -2,7 +2,7 @@
 'use strict';
 (function(root){
  const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
- const labels={cloneRow:'Clones del recorte',orbitRing:'Órbita con oclusión',codeBody:'Caracteres del recorte',postWall:'Muro de Biblioteca',letterDive:'Transición por letra',layerExplode:'Separación de capas',bladeSlice:'Corte de transición',rackFocus:'Enfoque por planos',voiceNote:'Nota de voz real',dollyZoom:'Dolly de dos planos',paperTear:'Rasgado con semilla',blowAway:'Dispersión de capa'};
+ const labels={contourTrace:'Contornos continuos',engravingFlow:'Grabado fluido',pixelMemory:'Memoria de píxeles',ribbonFlow:'Cintas de luminancia',cloneRow:'Clones del recorte',orbitRing:'Órbita con oclusión',codeBody:'Caracteres del recorte',postWall:'Muro de Biblioteca',letterDive:'Transición por letra',layerExplode:'Separación de capas',bladeSlice:'Corte de transición',rackFocus:'Enfoque por planos',voiceNote:'Nota de voz real',dollyZoom:'Dolly de dos planos',paperTear:'Rasgado con semilla',blowAway:'Dispersión de capa'};
  function random(seed){let n=Number(seed)>>>0;return()=>{n+=0x6D2B79F5;let x=n;x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);return ((x^x>>>14)>>>0)/4294967296;};}
  function keyframe(keys,time){
   if(!Array.isArray(keys)||!keys.length)return {x:0,y:0,scale:1,rotation:0,opacity:1};
@@ -42,6 +42,20 @@
   const n=channels?.[0]?.length||0;if(!n)return[];const count=Math.min(n,Math.max(1,Math.floor(bins))),out=[];
   for(let b=0;b<count;b++){let value=0;for(const channel of channels)for(let i=Math.floor(b*n/count);i<Math.floor((b+1)*n/count);i++)value=Math.max(value,Math.abs(channel[i]||0));out.push(clamp(value));}return out;
  }
+ const contourCache=new WeakMap();
+ function contourMap(scene,seed){
+  const background=scene.planes.find(p=>p.role==='background'&&p.image);if(!background)throw Error('Este efecto necesita el plano de fondo.');
+  const recipe=scene.contourRecipe||{},W=scene.width||background.image.width,H=scene.height||background.image.height;
+  const scale=Math.min(110/W,150/H),w=Math.max(16,Math.round(W*scale)),h=Math.max(16,Math.round(H*scale)),levels=Number(recipe.contourLevels)||7,spacing=Number(recipe.contourSpacing)||3;
+  const key=[w,h,levels,spacing,seed].join(':');let memo=contourCache.get(background.image);if(!memo){memo=new Map();contourCache.set(background.image,memo);}
+  if(!memo.has(key)){
+   if(!root.StudioContourDesign)throw Error('Falta el motor de contornos. Abre la entrega completa o portátil.');
+   const proxy=root.document.createElement('canvas');proxy.width=w;proxy.height=h;proxy.getContext('2d').drawImage(background.image,0,0,w,h);
+   if(memo.size>=6)memo.delete(memo.keys().next().value);
+   memo.set(key,root.StudioContourDesign.analyze(proxy.getContext('2d').getImageData(0,0,w,h).data,w,h,{levels,spacing,seed}));
+  }
+  return memo.get(key);
+ }
  function render(ctx,scene,{id='none',amount=65,text='',seed=1,time=0,duration=3,next,gallery=[],waveform=[],waveformProgress}={}){
   const w=ctx.canvas.width,h=ctx.canvas.height,t=clamp(time/Math.max(.01,duration)),power=clamp(Number(amount)/100),extra={next,gallery,waveform};
   const error=id==='none'?'':capabilities(scene,id,extra);if(error)throw Error(error);
@@ -49,6 +63,10 @@
   const subject=scene.planes.filter(p=>p.role==='product'),back=scene.planes.filter(p=>p.role==='background'),front=scene.planes.filter(p=>!['background','product'].includes(p.role));
   const group=items=>items.forEach(p=>plane(ctx,p,w,h,time));
   const baseline=()=>flat(ctx,scene,w,h,time);
+  if(['contourTrace','engravingFlow','pixelMemory','ribbonFlow'].includes(id)){
+    const recipe=scene.contourRecipe||{},map=contourMap(scene,seed),kind={contourTrace:'contours',engravingFlow:'engraving',pixelMemory:'pixels',ribbonFlow:'ribbons'}[id];
+    group(back);root.StudioContourDesign.paint(ctx,map,{t,kind,amount,line:Number(recipe.contourLine)||1.4,seed,color:recipe.paletteAccent||'#d4f492',paper:recipe.paletteBox||'#182722'});group(subject);group(front);return;
+  }
   if(['letterDive','bladeSlice','paperTear'].includes(id)){
     baseline();if(t===0)return;if(t===1){ctx.clearRect(0,0,w,h);ctx.drawImage(next,0,0,w,h);return;}
     ctx.save();ctx.beginPath();

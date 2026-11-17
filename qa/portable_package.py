@@ -30,7 +30,7 @@ class Page(HTMLParser):
 for name in ['STUDIOART_PORTATIL.html','AUDITORIA_AUTOMATICA.html']:
  text=(root/name).read_text();Page().feed(text)
  assert '--studio-css-loaded:1' in text
- assert 'V1.3.2' in text
+ assert 'V1.3.4' in text
  assert 'data:font/ttf;base64,' in text
 assert frames>=5
 with tempfile.TemporaryDirectory(prefix='studio-portable-') as temp:

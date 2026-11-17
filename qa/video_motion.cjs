@@ -27,7 +27,7 @@ for(const ratio of Object.keys(sandbox.RATIOS)){
 }
 // Exercise the actual Video branch with the new compositor, not only the standalone effect library.
 sandbox.window.document=sandbox.document;
-vm.runInContext(fs.readFileSync(path.join(__dirname,'../js/layer_motion.js'),'utf8'),sandbox);
+vm.runInContext(fs.readFileSync(path.join(__dirname,'../modulos/estudio_v5/contour_design.js'),'utf8'),sandbox);vm.runInContext(fs.readFileSync(path.join(__dirname,'../js/layer_motion.js'),'utf8'),sandbox);
 const product=createCanvas(120,150);product.getContext('2d').fillStyle='#dc4b27';product.getContext('2d').fillRect(40,50,35,65);
 const layeredAsset={id:'asset',type:'image',url:'source',scene:{version:1,width:120,height:150,planes:[{id:'background',role:'background',image},{id:'product',role:'product',image:product}]}};
 sandbox.assets.set('asset',layeredAsset);sandbox.assets.set('next',{id:'next',type:'image',url:'next'});sandbox.getAsset=id=>sandbox.assets.get(id);

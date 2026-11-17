@@ -1,9 +1,13 @@
-# Abrir StudioART 1.3.2
+# Abrir StudioART 1.3.4
 
-Abre **STUDIOART_PORTATIL.html**. Este archivo reúne estilos, código, tipografías y los módulos de Estudio y Video. No incluye tus imágenes. También funciona si Windows extrae únicamente ese HTML al abrir el ZIP.
+Abre **STUDIOART_PORTATIL.html**. Incluye los estilos, scripts, tipografías y módulos necesarios. Importa tus imágenes desde tu equipo.
 
-Para trabajar con la estructura de desarrollo, extrae **todo** el ZIP y abre `ABRIR_SIN_SERVIDOR.html`. No copies únicamente ese lanzador. Si faltan archivos, la interfaz muestra un diagnóstico en lugar de quedar sin formato.
+1. Entra a **Estudio de imagen** y carga una fotografía; añade producto, logo y QR si los necesitas.
+2. Pulsa **Generar otro diseño**. Cada pulsación produce un solo diseño con otra semilla. En Automático explora estructuras y tratamientos diferentes.
+3. Usa **Repetir semilla** para recuperar el mismo resultado. Los botones Composición, Color y Decoración varían sus canales; los candados mantienen posiciones.
+4. Pulsa **Play** junto al lienzo para ver motion. Puedes elegir un efecto, ajustar su intensidad, pausar o detener. GIF/video están en Pro → Movimiento y secuencia.
+5. Guarda tu proyecto JSON para conservar medios y capas. Los proyectos anteriores de cuatro propuestas también abren.
 
-Las imágenes se importan desde tu equipo. Guarda proyectos y respaldos antes de cambiar de ruta o de navegador; el almacenamiento local puede variar con la ubicación.
+Para desarrollo, extrae todo el ZIP y abre `ABRIR_SIN_SERVIDOR.html`; conserva las carpetas. Para auditar Chrome/Edge, abre `AUDITORIA_AUTOMATICA.html` y pulsa Ejecutar auditoría.
 
-Consulta `docs/AUDITORIA_1_3_2.md` para resultados, límites y pruebas pendientes.
+La base contiene código, fuentes tipográficas licenciadas, pruebas y documentación. No incluye tus imágenes ni videos. La prueba integral en Chrome/Edge sigue pendiente; consulta `docs/AUDITORIA_1_3_4.md`.

@@ -1,6 +1,6 @@
 {
   "app": "SUPREMO_LIDER",
-  "version": "1.3.2",
+  "version": "1.3.4",
   "channel": "development-offline",
   "installedVia": "supremo-patch-v1",
   "changes": [
@@ -27,6 +27,14 @@
     "Doce efectos nuevos con planos, recortes, imágenes o audio reales; conserva los nueve efectos anteriores.",
     "Máscaras poligonales de capas con persistencia; exportación de planos reales desde Estudio hacia Biblioteca y Video.",
     "Animación multicapa con claves de posición, escala, rotación y opacidad y generación por semilla.",
-    "Arnés de auditoría automática local para Chrome/Edge, con medios sintéticos y base de prueba separada."
+    "Arnés de auditoría automática local para Chrome/Edge, con medios sintéticos y base de prueba separada.",
+    "Motor seed-5: logo y todas las capas desbloqueadas participan en cuatro distribuciones diversas; conserva motores anteriores.",
+    "Generación nueva y repetición de semilla diferenciadas, con candado de posición del logo.",
+    "Motion por semilla y reproducción en el lienzo de Estudio; siete efectos multicapa y nueve gráficos usan el mismo render para vista previa, GIF y video.",
+    "Malla de contornos animada en Estudio: conexiones sobre Sobel/Delaunay y partículas temporales, con planos de marca y producto recompuestos.",
+    "Motor seed-6: un diseño por generación, diez arquitecturas y seis tratamientos de fondo con compatibilidad de proyectos anteriores.",
+    "Contornos continuos conectados, campo tangente Sobel, grabado, dos tintas, memoria de píxeles y cintas de luminancia.",
+    "Play con bucle, reloj, pausa, diagnóstico de imagen fija y recuperación de errores; cuatro nuevos efectos temporales en Estudio.",
+    "Alineación de capas completas con fondos y máscaras; controles de estructura y campo con persistencia."
   ]
 }

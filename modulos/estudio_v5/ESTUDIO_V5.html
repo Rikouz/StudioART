@@ -24,17 +24,26 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <label class="field">Familia comercial<select id="commercialPreset"><option value="custom">Libre</option><option value="shopmax">SHOPMAX · gabinetes</option><option value="yardmax">YARDMAX · maquinaria</option><option value="steel">SLT / CTL · servicios de acero</option><option value="campaign">Campaña · editorial</option></select></label>
 <div class="field"><label for="palette">Paleta</label><select id="palette"><option value="forest">Industrial oscuro</option><option value="light">Editorial claro</option><option value="warm">Cálido discreto</option><option value="product">Producto neutro</option><option value="editorial">Editorial monocromo</option><option value="ocean">Acero y petróleo</option><option value="forestDeep">Oliva y crema</option><option value="clay">Terracota</option><option value="blueprint">Azul técnico</option><option value="graphite">Grafito y lima</option><option value="stone">Piedra clara</option><option value="copper">Cobre y carbón</option><option value="burgundy">Vino editorial</option><option value="outdoor">Exterior natural</option><option value="inkblue">Azul tinta</option><option value="custom">Personalizada</option></select></div><div class="palette-custom" id="paletteCustom" hidden><label class="field">Texto<input id="paletteInk" type="color" value="#f7f8f3"></label><label class="field">Caja<input id="paletteBox" type="color" value="#101916"></label><label class="field">CTA<input id="paletteAccent" type="color" value="#d6eb98"></label></div>
 <label class="field">Categoría de diseño<select id="designFamily"><option value="auto">Automática · explorar categorías</option></select></label>
-<label class="field">Semilla de la composición<input id="designSeed" type="number" min="0" max="4294967295" value="24"></label>
+<details class="group" open><summary>Diseño y Contour</summary><div class="stack">
+<label class="field">Arquitectura<select id="designArchitecture"><option value="auto">Automática · estructura distinta</option></select></label>
+<label class="field">Tratamiento del fondo<select id="designTreatment"><option value="auto">Automático · explorar tratamientos</option></select></label>
+<label class="field">Capas de luminancia<input id="contourLevels" type="range" min="2" max="18" value="7"></label>
+<label class="field">Espaciado del campo<input id="contourSpacing" type="range" min="1" max="8" value="3"></label>
+<label class="field">Grosor del trazo<input id="contourLine" type="range" min="0.5" max="5" step="0.1" value="1.4"></label>
+<label class="field">Intensidad del tratamiento<input id="contourPower" type="range" min="0" max="100" value="65"></label>
+<button id="applyContour" type="button">Aplicar controles al diseño</button>
+<p class="hint">Automático cambia estructura, campo y color con la semilla. Puedes fijar una arquitectura o tratamiento. Las capas siguen siendo editables.</p>
+</div></details><label class="field">Semilla de la composición<input id="designSeed" type="number" min="0" max="4294967295" value="24"></label>
 <details class="group"><summary>Referencia visual y mapas</summary><div class="stack">
 <label class="field">Referencia opcional<input id="reference" type="file" accept="image/png,image/jpeg,image/webp"></label>
 <button id="clearDesignReference" type="button">Quitar referencia</button>
 <label class="field">Mapa<select id="designMapMode"><option value="activity">Actividad visual</option><option value="light">Luminancia</option><option value="placement">Zonas de colocación</option><option value="space">Espaciado y bandas libres</option></select></label><button id="designMap" type="button" aria-pressed="false">Ver mapa de colocación</button>
 <output id="designMapStatus" class="hint"></output>
 </div></details>
-<button class="primary" id="generate">Generar cuatro propuestas</button><button id="repeatDesign" type="button">Repetir semilla</button><div class="quick-variations" role="group" aria-label="Variar por categoría"><button id="varyLayout">Composición</button><button id="varyColor">Color</button><button id="varyDecoration">Decoración</button></div><button id="varyAll" data-pro>Variar todo el lienzo</button><p class="hint">Las capas con candado conservan su posición; las demás participan en las propuestas.</p>
+<button class="primary" id="generate">Generar otro diseño</button><button id="repeatDesign" type="button">Repetir semilla</button><div class="quick-variations" role="group" aria-label="Variar por categoría"><button id="varyLayout">Composición</button><button id="varyColor">Color</button><button id="varyDecoration">Decoración</button></div><label class="check"><input id="lockLogo" type="checkbox"> Mantener posición del logo</label><button id="varyAll" data-pro>Variar todo el lienzo</button><p class="hint">Las capas con candado conservan su posición; las demás participan en las propuestas.</p>
 <label class="check"><input type="checkbox" id="lockText"> Mantener posición del titular</label><label class="check"><input type="checkbox" id="lockProduct"> Mantener posición del producto</label>
-</div><div class="group stack" data-pro><h3>Capas adicionales</h3><button id="addText">+ Capa de texto</button><button id="addShape">+ Forma</button><label class="field">+ Añadir imagen<input id="addImage" type="file" accept="image/png,image/jpeg,image/webp"></label><label class="field">Capa activa<select id="layerSelect"></select></label><div id="layerControls"></div><div class="row"><button id="paintLayerMask">Pintar máscara de la capa</button><button id="clearLayerMask">Quitar máscara</button><canvas id="layerMaskCanvas" width="320" height="220" hidden style="width:100%;touch-action:none"></canvas><button id="applyLayerMask" hidden>Aplicar polígono de máscara</button><button id="layerDuplicate">Duplicar</button><button id="layerUndo">Deshacer capa</button><button id="layerRedo">Rehacer capa</button><button id="layerUp">Subir</button><button id="layerDown">Bajar</button><button id="layerDelete">Quitar</button></div><p class="hint">Combina varias capas de texto para dar colores y tamaños distintos a cada palabra. Se guardan en tu proyecto.</p></div><details class="group" data-pro><summary>Movimiento y secuencia</summary><div class="stack"><label class="field">Movimiento de salida<select id="motionMode"><option value="none">Imagen fija</option><option value="push">Acercamiento suave</option><option value="pull">Alejamiento suave</option><option value="pan">Paneo lateral 2D</option><option value="vertical">Desplazamiento vertical 2D</option></select></label><label class="field">Secuencia<select id="sequenceMode"><option value="one">Propuesta seleccionada</option><option value="four">Las cuatro propuestas</option></select></label><label class="field">Duración en segundos<input id="motionDuration" type="number" min="1" max="12" step="1" value="5"></label><label class="field">Velocidad de cuadros<select id="motionFps"><option value="10">10 fps · GIF ligero</option><option value="15" selected>15 fps</option><option value="24">24 fps</option></select></label><label class="field">Audio local opcional (solo video)<input id="motionAudio" type="file" accept="audio/*"></label><label class="check"><input type="checkbox" id="audioReactive"> Pulso de audio</label><label class="field">Intensidad del pulso<input id="audioIntensity" type="range" min="0" max="100" value="40"></label><div class="row"><button id="motionPlay">▶ Vista previa</button><button id="motionStop">■ Detener</button></div><div class="row"><button id="exportGif">Exportar GIF</button><button id="exportVideo">Exportar video</button></div><progress id="motionProgress" max="100" value="0" style="width:100%"></progress><p class="hint">Cámara 2D sobre la pieza completa. GIF sin sonido; MP4 o WebM según el navegador. No modifica la geometría del producto.</p></div></details><details class="group" data-pro><summary>Seguimiento de sujeto en video</summary><div class="stack"><label class="field">Video local<input type="file" id="trackFile" accept="video/*"></label><video id="trackVideo" muted playsinline hidden></video><canvas id="trackCanvas" width="160" height="90" style="width:100%;touch-action:none"></canvas><p class="hint">Dibuja un recuadro sobre el sujeto en el primer cuadro. Analiza hasta 12 segundos.</p><button id="runTrack">Analizar seguimiento</button><button id="saveTrack">Guardar trayectoria JSON</button></div></details><div class="group" id="studioTransfer" hidden><h3>Usar composición en Supremo Líder</h3><div class="stack"><button id="studioLibrary">Guardar pieza</button><button id="studioCamera">Guardar y abrir en Cámara</button><button id="studioVideo">Guardar y usar en Video</button><button id="studioCarousel">Guardar y usar en Carrusel</button><button id="studioCarouselAll">Agregar las cuatro propuestas al carrusel</button></div></div><div class="group"><h3>Proyecto y exportación</h3><div class="stack"><button id="export">Descargar PNG</button><button id="save">Guardar proyecto con imágenes</button><label class="field">Abrir proyecto JSON<input type="file" id="openProject" accept="application/json,.json"></label></div><p class="hint">El JSON incluye las imágenes cargadas y puede ser grande.</p></div></aside>
-<main class="workspace"><div class="bar"><strong>Vista previa</strong><button id="compare">Ver fotografía original</button><button id="guides">Mostrar guías</button><button id="edgeMap" data-pro aria-pressed="false">Mapa de bordes</button><span class="hint" data-pro>Arrastra el logo o el cuadro de título. En capas adicionales, usa la esquina para cambiar el tamaño.</span></div><div class="stage"><canvas id="mainCanvas" width="800" height="1000" aria-label="Vista previa de la propuesta"></canvas></div><div class="variants" id="variants"></div><output id="sceneResolution" class="hint"></output><p class="status" id="status" role="status">Carga una fotografía y crea tus propuestas.</p></main>
+</div><div class="group stack" data-pro><h3>Capas adicionales</h3><button id="addText">+ Capa de texto</button><button id="addShape">+ Forma</button><label class="field">+ Añadir imagen<input id="addImage" type="file" accept="image/png,image/jpeg,image/webp"></label><label class="field">Capa activa<select id="layerSelect"></select></label><div id="layerControls"></div><div class="row" id="layerActions"><button id="paintLayerMask">Pintar máscara de la capa</button><button id="clearLayerMask">Quitar máscara</button><canvas id="layerMaskCanvas" width="320" height="220" hidden style="width:100%;touch-action:none"></canvas><button id="applyLayerMask" hidden>Aplicar polígono de máscara</button><button id="layerDuplicate">Duplicar</button><button id="layerUndo">Deshacer capa</button><button id="layerRedo">Rehacer capa</button><button id="layerUp">Subir</button><button id="layerDown">Bajar</button><button id="layerDelete">Quitar</button></div><details><summary>Alinear la capa seleccionada</summary><div class="quick-variations"><button id="alignLayerLeft">Izquierda</button><button id="alignLayerCenter">Centro</button><button id="alignLayerRight">Derecha</button><button id="alignLayerTop">Arriba</button><button id="alignLayerMiddle">Medio</button><button id="alignLayerBottom">Abajo</button></div></details><p class="hint">Combina varias capas de texto para dar colores y tamaños distintos a cada palabra. Se guardan en tu proyecto.</p></div><details class="group" data-pro open><summary>Movimiento y secuencia</summary><div class="stack"><label class="field">Intensidad del efecto<input id="studioMotionAmount" type="range" min="0" max="100" value="50"></label><label class="field">Texto de motion<input id="studioMotionText" value="MSCCS · EQUIPA TU ESPACIO"></label><label class="field">Movimiento de salida<select id="motionMode"><option value="none">Imagen fija</option><option value="push">Acercamiento suave</option><option value="pull">Alejamiento suave</option><option value="pan">Paneo lateral 2D</option><option value="vertical">Desplazamiento vertical 2D</option></select></label><label class="field">Secuencia<select id="sequenceMode"><option value="one">Propuesta seleccionada</option><option value="four">Diseños de un proyecto anterior</option></select></label><label class="field">Duración en segundos<input id="motionDuration" type="number" min="1" max="12" step="1" value="5"></label><label class="field">Velocidad de cuadros<select id="motionFps"><option value="10">10 fps · GIF ligero</option><option value="15" selected>15 fps</option><option value="24">24 fps</option></select></label><label class="field">Audio local opcional (solo video)<input id="motionAudio" type="file" accept="audio/*"></label><label class="check"><input type="checkbox" id="audioReactive"> Pulso de audio</label><label class="field">Intensidad del pulso<input id="audioIntensity" type="range" min="0" max="100" value="40"></label><div class="row"><button id="motionPlay">▶ Vista previa</button><button id="motionStop">■ Detener</button></div><div class="row"><button id="exportGif">Exportar GIF</button><button id="exportVideo">Exportar video</button></div><progress id="motionProgress" max="100" value="0" style="width:100%"></progress><p class="hint">Efectos sobre planos reales de fondo, producto, título, logo y capas. Vista previa y exportación usan el mismo render. GIF sin sonido; MP4 o WebM según el navegador. No modifica la geometría del producto.</p></div></details><details class="group" data-pro><summary>Seguimiento de sujeto en video</summary><div class="stack"><label class="field">Video local<input type="file" id="trackFile" accept="video/*"></label><video id="trackVideo" muted playsinline hidden></video><canvas id="trackCanvas" width="160" height="90" style="width:100%;touch-action:none"></canvas><p class="hint">Dibuja un recuadro sobre el sujeto en el primer cuadro. Analiza hasta 12 segundos.</p><button id="runTrack">Analizar seguimiento</button><button id="saveTrack">Guardar trayectoria JSON</button></div></details><div class="group" id="studioTransfer" hidden><h3>Usar composición en Supremo Líder</h3><div class="stack"><button id="studioLibrary">Guardar pieza</button><button id="studioCamera">Guardar y abrir en Cámara</button><button id="studioVideo">Guardar y usar en Video</button><button id="studioCarousel">Guardar y usar en Carrusel</button><button id="studioCarouselAll">Agregar diseños abiertos al carrusel</button></div></div><div class="group"><h3>Proyecto y exportación</h3><div class="stack"><button id="export">Descargar PNG</button><button id="save">Guardar proyecto con imágenes</button><label class="field">Abrir proyecto JSON<input type="file" id="openProject" accept="application/json,.json"></label></div><p class="hint">El JSON incluye las imágenes cargadas y puede ser grande.</p></div></aside>
+<main class="workspace"><div class="bar"><strong>Vista previa</strong><label class="check"><input id="autoStudioMotion" type="checkbox" checked> Motion al variar</label><button id="stagePlay">▶ Play</button><output id="motionClock" aria-live="off">0.00 s</output><label class="check"><input type="checkbox" id="motionLoop" checked> Bucle</label><button id="stageStop">■ Detener</button><label class="field" style="max-width:240px">Efecto por capas<select id="studioMotionEffect"><option value="auto" selected>Motion por semilla</option><option value="contourTrace">Contornos continuos · motion</option><option value="engravingFlow">Grabado fluido · motion</option><option value="pixelMemory">Memoria de píxeles · motion</option><option value="ribbonFlow">Cintas de luminancia · motion</option><option value="contourFlow">Malla de contornos animada</option><option value="none">Sin efecto por capas</option><option value="layerExplode">Separación de capas</option><option value="dollyZoom">Dolly de dos planos</option><option value="rackFocus">Cambio de foco</option><option value="cloneRow">Clones del recorte</option><option value="orbitRing">Órbita tipográfica</option><option value="codeBody">Caracteres del recorte</option><option value="blowAway">Dispersión del recorte</option><option value="camera:liveCursor">Cursor de selección</option><option value="camera:dayDial">Dial de tiempo</option><option value="camera:commentDrop">Tarjeta de mensaje</option><option value="camera:sketchWords">Título trazado</option><option value="camera:pressFront">Portada editorial</option><option value="camera:predictKeys">Teclas predictivas</option><option value="camera:headStack">Etiquetas escalonadas</option><option value="camera:banknote">Grabado editorial</option><option value="camera:impactFrame">Marco de impacto</option></select></label><button id="compare">Ver fotografía original</button><button id="guides">Mostrar guías</button><button id="edgeMap" data-pro aria-pressed="false">Mapa de bordes</button><span class="hint" data-pro>Arrastra el logo o el cuadro de título. En capas adicionales, usa la esquina para cambiar el tamaño.</span></div><div class="stage"><canvas id="mainCanvas" width="800" height="1000" aria-label="Vista previa de la propuesta"></canvas></div><output id="designSummary" class="note" aria-live="polite"></output><div class="variants" id="variants" hidden></div><output id="sceneResolution" class="hint"></output><p class="status" id="status" role="status">Carga una fotografía y genera un diseño.</p></main>
 <aside class="panel" data-pro><h2>Calibración</h2><p class="hint">Los controles afectan la vista previa y el PNG.</p><div class="group stack"><h3>Composición</h3>
 <label class="field">Opacidad del cuadro de título <output id="boxOpacityOut">40%</output><input id="boxOpacity" type="range" min="0" max="100" value="40"></label>
 <label class="field">Tamaño del titular <output id="fontSizeOut"></output><input id="fontSize" type="range" min="3" max="10" step=".1" value="5.6"></label>
@@ -98,7 +107,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <output id="sceneState" class="hint" aria-live="polite">Calibración pendiente</output>
 </div></details></div>
 <details class="group"><summary>Lista de calibración visual</summary><label class="check"><input type="checkbox" class="qa"> Producto completo y sin deformar</label><label class="check"><input type="checkbox" class="qa"> Ruedas apoyadas y sombra coherente</label><label class="check"><input type="checkbox" class="qa"> Sin halo en el recorte</label><label class="check"><input type="checkbox" class="qa"> Luz y escala coherentes</label><label class="check"><input type="checkbox" class="qa"> Logo, texto y QR legibles</label><p class="hint">La revisión es manual; las casillas no certifican el resultado.</p></details></aside></div>
-<script src="../../js/layer_motion.js"></script><script src="primitive_engine.js"></script><script src="design_engine.js"></script><script>
+<input type="hidden" id="designArchitectureValue" value="full"><input type="hidden" id="designTreatmentValue" value="photo"><input type="hidden" id="designMotionEffect" value="contourTrace"><input type="hidden" id="structuralSeed" value="0"><input type="hidden" id="structuralEngine" value=""><script src="../../js/camera_effects.js"></script><script src="../../js/layer_motion.js"></script><script src="primitive_engine.js"></script><script src="design_engine.js"></script><script src="contour_design.js"></script><script>
 'use strict';
 const CreativeMath = (() => {
   function alphaBounds(pixels,w,h,threshold=32) {
@@ -176,12 +185,12 @@ if(typeof module!=='undefined')module.exports=CreativeMath;
 
 </script><script>
 'use strict';
-const $=id=>document.getElementById(id);let studioPro=false,edgePreview=false,designPreview=false;let scene={contacts:[],anchor:null},sceneMode=null;const ids=['headline','cta','designFamily','format','formatWidth','formatHeight','palette','paletteInk','paletteBox','paletteAccent','boxOpacity','fontSize','textWidth','boxHeight','boxPadding','logoSize','logoX','logoY','qrSize','productScale','brightness','contrast','shadow','shadowWidth','shadowY','sceneAngle','sceneShadow','sceneWarmth','sceneSoftness','sceneMatch','sceneDefringe','sceneAutoInsert','sceneFit','lockText','lockProduct','protectProduct'];const ratios={'4:5':[1080,1350],'1:1':[1080,1080],'9:16':[1080,1920],letter:[2550,3300],letterH:[3300,2550],'16:9':[1920,1080]};
+const $=id=>document.getElementById(id);let studioPro=false,edgePreview=false,designPreview=false;let scene={contacts:[],anchor:null},sceneMode=null;const ids=['lockLogo','headline','cta','designFamily','format','formatWidth','formatHeight','palette','paletteInk','paletteBox','paletteAccent','boxOpacity','fontSize','textWidth','boxHeight','boxPadding','logoSize','logoX','logoY','qrSize','productScale','brightness','contrast','shadow','shadowWidth','shadowY','sceneAngle','sceneShadow','sceneWarmth','sceneSoftness','sceneMatch','sceneDefringe','sceneAutoInsert','sceneFit','lockText','lockProduct','protectProduct'];const ratios={'4:5':[1080,1350],'1:1':[1080,1080],'9:16':[1080,1920],letter:[2550,3300],letterH:[3300,2550],'16:9':[1920,1080]};
 function studioDimensions(){
   if($('format').value!=='custom')return ratios[$('format').value]||ratios['4:5'];
   return ['formatWidth','formatHeight'].map(id=>Math.round(Math.max(320,Math.min(4096,Number($(id).value)||1080))));
 }const colors={forest:{ink:'#f7f8f3',box:'#101916',accent:'#d6eb98'},light:{ink:'#182421',box:'#f2efe6',accent:'#a06b38'},warm:{ink:'#fff8ee',box:'#3e3025',accent:'#e8c690'}};Object.assign(colors,{ocean:{ink:'#e8f7ff',box:'#153340',accent:'#72ded9'},forestDeep:{ink:'#f6efdb',box:'#202b22',accent:'#e0c883'},clay:{ink:'#fff6e6',box:'#50291f',accent:'#ffc694'},blueprint:{ink:'#edf4ff',box:'#172d50',accent:'#9bd3ff'},graphite:{ink:'#f3f5ef',box:'#212522',accent:'#d9f475'},stone:{ink:'#282724',box:'#efebe2',accent:'#8b4934'},copper:{ink:'#fff0dd',box:'#302823',accent:'#f5b681'},burgundy:{ink:'#fff0e6',box:'#38212f',accent:'#ebbec9'},outdoor:{ink:'#fcf6e2',box:'#344237',accent:'#e6d296'},inkblue:{ink:'#172c42',box:'#e6edf4',accent:'#2e617d'}});let media={background:null,product:null,logo:null,qr:null,reference:null},images={},current=0,seed=0,comps=[],compare=false,showGuides=false,drag=null;
-const base=[{tx:.08,ty:.12,px:.70,py:.83},{tx:.08,ty:.55,px:.68,py:.80},{tx:.10,ty:.68,px:.56,py:.66},{tx:.43,ty:.16,px:.29,py:.79}];const clone=x=>JSON.parse(JSON.stringify(x));function status(t){$('status').textContent=t}function createInitial(){comps=base.map(x=>({...x}));seed=0;current=0}createInitial();
+const base=[{tx:.08,ty:.12,px:.70,py:.83},{tx:.08,ty:.55,px:.68,py:.80},{tx:.10,ty:.68,px:.56,py:.66},{tx:.43,ty:.16,px:.29,py:.79}];const clone=x=>JSON.parse(JSON.stringify(x));function status(t){$('status').textContent=t}function createInitial(){comps=[{...base[0]}];seed=0;current=0}createInitial();
 function readFile(file){return new Promise((res,rej)=>{let r=new FileReader;r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(file)})}function loadImage(src){return new Promise((res,rej)=>{const img=new Image;img.onload=()=>res(img);img.onerror=rej;img.src=src})}async function setMedia(k,src){if(src!==null&&!/^data:image\/(png|jpeg|webp);base64,/i.test(src))throw Error('Formato de imagen no permitido');const image=src?await loadImage(src):null;
 if(media[k]!==src&&k==='product'){scene.contacts=[];scene.suggested=[];scene.auto=false;scene.note='';scene.anchor=null;scene.secondAnchor=null;sceneMode=null}
 if(media[k]!==src&&k==='background'){scene.anchor=null;scene.secondAnchor=null;scene.reference=null;scene.foreground=[];sceneMode=null}
@@ -192,7 +201,7 @@ if(changed&&(k==='background'||k==='product')&&$('sceneAutoInsert').checked&&ima
 for(let k of Object.keys(media))$(k).addEventListener('change',async e=>{try{const f=e.target.files[0];if(!f)return;if(f.size>25*1024*1024)throw Error('Cada imagen debe pesar 25 MB o menos');await setMedia(k,await readFile(f));drawAll();status(k==='background'?'Fotografía cargada. Puedes crear propuestas.':'Imagen cargada. Ajusta su posición y tamaño.')}catch(err){status('No se pudo cargar: '+err.message)}});
 function settings(){let s={scene:clone(scene)};for(let id of ids){let e=$(id);s[id]=e.type==='checkbox'?e.checked:e.value}return s}function applySettings(s){
 scene=readScene(s.scene);sceneMode=null;
-s={designFamily:'auto',formatWidth:'1080',formatHeight:'1350',boxHeight:'0',boxPadding:'2.8',logoSize:'18',logoX:'6',logoY:'2.5',qrSize:'13',sceneAngle:'12',sceneShadow:'35',sceneWarmth:'0',sceneSoftness:'0',sceneMatch:'0',sceneDefringe:'0',sceneAutoInsert:true,sceneFit:false,...s};
+s={lockLogo:false,designFamily:'auto',formatWidth:'1080',formatHeight:'1350',boxHeight:'0',boxPadding:'2.8',logoSize:'18',logoX:'6',logoY:'2.5',qrSize:'13',sceneAngle:'12',sceneShadow:'35',sceneWarmth:'0',sceneSoftness:'0',sceneMatch:'0',sceneDefringe:'0',sceneAutoInsert:true,sceneFit:false,...s};
 for(let id of ids)if(s[id]!==undefined){let e=$(id);if(e.type==='checkbox')e.checked=!!s[id];else e.value=s[id]}calibrationReadout()}
 function wrap(ctx,text,max){
   const out=[];
@@ -317,7 +326,7 @@ if(options.guides){
   x.restore();
 }}
 
-function drawAll(){render($('mainCanvas'),comps[current],{original:compare,guides:showGuides});if(edgePreview&&images.background)renderEdgeMap($('mainCanvas'),images.background);else if(designPreview&&images.background)paintDesignMap($('mainCanvas'));const host=$('variants');host.replaceChildren();comps.forEach((c,i)=>{let b=document.createElement('button');b.className='variant'+(i===current?' active':'');b.setAttribute('aria-label','Elegir propuesta '+(i+1));let cv=document.createElement('canvas');render(cv,c,{thumb:true});let label=document.createElement('span');label.textContent='PROPUESTA 0'+(i+1);b.append(cv,label);b.onclick=()=>{if(window.__switchExtras)window.__switchExtras(i);current=i;compare=false;designPreview=false;$('designMap').setAttribute('aria-pressed','false');edgePreview=false;$('edgeMap').setAttribute('aria-pressed','false');drawAll();status('Propuesta '+(i+1)+' seleccionada.')};host.append(b)});calibrationReadout()}
+function drawAll(){render($('mainCanvas'),comps[current],{original:compare,guides:showGuides});if(edgePreview&&images.background)renderEdgeMap($('mainCanvas'),images.background);else if(designPreview&&images.background)paintDesignMap($('mainCanvas'));const host=$('variants');host.hidden=comps.length===1;host.replaceChildren();comps.forEach((c,i)=>{let b=document.createElement('button');b.className='variant'+(i===current?' active':'');b.setAttribute('aria-label','Elegir propuesta '+(i+1));let cv=document.createElement('canvas');render(cv,c,{thumb:true});let label=document.createElement('span');label.textContent='PROPUESTA 0'+(i+1);b.append(cv,label);b.onclick=()=>{if(window.__switchExtras)window.__switchExtras(i);current=i;compare=false;designPreview=false;$('designMap').setAttribute('aria-pressed','false');edgePreview=false;$('edgeMap').setAttribute('aria-pressed','false');drawAll();status('Propuesta '+(i+1)+' seleccionada.')};host.append(b)});calibrationReadout()}
 function random(seedNum){let x=seedNum>>>0;return()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x/4294967296}}for(let id of ids)$(id).addEventListener(['sceneMatch','sceneDefringe','formatWidth','formatHeight'].includes(id)?'change':'input',()=>{
   if(id==='formatWidth'||id==='formatHeight'){
     const [width,height]=studioDimensions();
@@ -376,7 +385,7 @@ for(const name of ['pointerup','pointercancel','lostpointercapture']){
 function download(blob,name){let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),10000)}$('export').onclick=()=>{if(!images.background){status('Carga una fotografía antes de exportar.');return}let out=document.createElement('canvas');render(out,comps[current]);out.toBlob(b=>{if(b)download(b,'MSCCS_PROPUESTA_'+(current+1)+'.png');else status('No se pudo exportar el PNG.')},'image/png');status('Preparando PNG a resolución final.')};function snapshotStudio(){return {format:'msccs-piloto-integracion',version:1,settings:settings(),media,comps:comps.map(({tx,ty,px,py,_extra,_visual})=>({tx,ty,px,py,_visual,_extra:(_extra||[]).map(({img,...l})=>l)})),current,seed}}
 $('save').onclick=()=>{const data=snapshotStudio();download(new Blob([JSON.stringify(data)],{type:'application/json'}),'MSCCS_PILOTO_PROYECTO.json');status('Proyecto descargado con las imágenes incluidas.')};$('openProject').onchange=async e=>{try{let f=e.target.files[0];if(!f)return;if(f.size>110*1024*1024)throw Error('Proyecto demasiado grande');await restoreStudio(JSON.parse(await f.text()));status('Proyecto abierto con sus imágenes.')}catch(err){status('No se pudo abrir: '+err.message)}e.target.value=''};async function restoreStudio(p) {
   if(p?.format!=='msccs-piloto-integracion'||p.version!==1||
-     !Array.isArray(p.comps)||p.comps.length!==4||
+     !Array.isArray(p.comps)||(p.comps.length<1||p.comps.length>4)||
      p.comps.some(c=>!c||!['tx','ty','px','py'].every(k=>Number.isFinite(c[k])&&c[k]>=0&&c[k]<=1))) {
     throw Error('Formato de proyecto incompatible');
   }
@@ -422,7 +431,7 @@ $('save').onclick=()=>{const data=snapshotStudio();download(new Blob([JSON.strin
   applySettings({...p.settings,extraLayers:[],nextId:highestId+1});
   comps=nextComps;
   designPreview=false;$('designMap').setAttribute('aria-pressed','false');edgePreview=false;compare=false;$('edgeMap').setAttribute('aria-pressed','false');$('compare').textContent='Ver fotografía original';
-  current=Number.isInteger(p.current) ? Math.max(0,Math.min(3,p.current)) : 0;
+  current=Number.isInteger(p.current) ? Math.max(0,Math.min(nextComps.length-1,p.current)) : 0;
   seed=Number(p.seed)||0;
   window.__restoreExtras();
   drawAll();
@@ -1034,17 +1043,79 @@ window.SLOffline={renderGif,recordVideo,supportedMime:mime};
 </script>
 <script>
 'use strict';
-const motionState={running:false,raf:0,started:0,frames:[],audio:null,encoding:false};
+const motionState={running:false,raf:0,started:0,frames:[],audio:null,encoding:false,elapsed:0};
 function motionDuration(){return Math.max(1,Math.min(12,Number($('motionDuration').value)||5))}
 function motionDimensions(short){let [w,h]=studioDimensions(),scale=short/Math.min(w,h);return [Math.round(w*scale/2)*2,Math.round(h*scale/2)*2]}
-function preparedFrames(short){let [w,h]=motionDimensions(short),list=$('sequenceMode').value==='four'?comps:[comps[current]];return list.map(c=>{let raw=document.createElement('canvas');render(raw,c);let out=document.createElement('canvas');out.width=w;out.height=h;out.getContext('2d').drawImage(raw,0,0,w,h);raw.width=1;raw.height=1;return out})}
-function drawMotion(t,target,frames){let c=target.getContext('2d'),w=target.width,h=target.height,n=frames.length,idx=Math.min(n-1,Math.floor(t*n)),local=Math.min(.999999,t*n-idx),mode=$('motionMode').value,z=1,dx=0,dy=0;if(mode==='push')z=1+local*.07;if(mode==='pull')z=1.07-local*.07;if(mode==='pan'){z=1.08;dx=(.5-local)*w*.05}if(mode==='vertical'){z=1.08;dy=(.5-local)*h*.05}c.save();c.setTransform(1,0,0,1,0,0);c.fillStyle='#101716';c.fillRect(0,0,w,h);c.translate(w/2+dx,h/2+dy);z+=audioPulse(t*motionDuration());c.scale(z,z);c.drawImage(frames[idx],-w/2,-h/2,w,h);c.restore()}
-function stopMotion(){motionState.running=false;if(motionState.raf)cancelAnimationFrame(motionState.raf);motionState.frames=[];drawAll();$('motionPlay').disabled=false}
-$('motionPlay').onclick=()=>{if(!images.background){status('Carga una fotografía antes de reproducir.');return}stopMotion();try{motionState.frames=preparedFrames(540);motionState.running=true;motionState.started=performance.now();$('motionPlay').disabled=true;const loop=now=>{if(!motionState.running)return;let t=Math.min(1,(now-motionState.started)/(motionDuration()*1000));drawMotion(t,cv,motionState.frames);if(t<1)motionState.raf=requestAnimationFrame(loop);else stopMotion()};motionState.raf=requestAnimationFrame(loop);status('Reproduciendo vista previa 2D.')}catch(e){stopMotion();status('No se pudo preparar: '+e.message)}};$('motionStop').onclick=stopMotion;
+function preparedFrames(short){let [w,h]=motionDimensions(short),list=$('sequenceMode').value==='four'?comps:[comps[current]];if(list.reduce((n,c)=>n+(5+(c._extra||[]).length)*w*h,0)>96000000)throw Error('La secuencia supera el presupuesto de memoria. Exporta una propuesta o reduce la cantidad de capas.');return list.map(c=>{let raw=document.createElement('canvas');render(raw,c);let out=document.createElement('canvas');out.width=w;out.height=h;out.getContext('2d').drawImage(raw,0,0,w,h);raw.width=1;raw.height=1;
+const [W,H]=studioDimensions();
+const descriptors=[['background','background'],...(images.product?[['product','product']]:[]),['title','title'],...(images.logo?[['logo','logo']]:[]),...(images.qr?[['qr','qr']]:[]),...(c._extra||[]).filter(l=>!l.hidden).map(l=>['extra:'+l.id,'overlay'])];
+out.scene={contourRecipe:{...c._visual},planes:descriptors.map(([id,role])=>{const full=document.createElement('canvas');render(full,c,{plane:id});const image=document.createElement('canvas');image.width=w;image.height=h;image.getContext('2d').drawImage(full,0,0,w,h);full.width=1;full.height=1;return {id,role,image};})};
+out.motion={duration:motionDuration(),effect:$('studioMotionEffect').value,amount:Number($('studioMotionAmount').value),text:$('studioMotionText').value,seed:unsignedSeed($('seedExtra').value),mode:$('motionMode').value};
+if(out.motion.effect==='contourFlow'||out.motion.effect==='auto'&&!c._visual?.designMotionEffect){
+ const source=sampleFx(images.background,w,h),field=getContours(source);
+ const points=StudioContour.sample(field,64,Math.max(4,Number(c._visual?.fxThreshold||12)*.6),random(out.motion.seed));
+ const edges=StudioContour.edges(points,source.W,source.H).filter(([a,b])=>StudioContour.support(field,points[a],points[b],4)>=.08);
+ out.contours={points,edges,width:source.W,height:source.H,color:c._visual?.paletteAccent||'#dcf493'};
+}
+if(out.motion.effect==='auto'&&c._visual?.designMotionEffect)out.motion.effect=c._visual.designMotionEffect;
+if(out.motion.effect==='auto'){const pool=images.product?['layerExplode','dollyZoom','cloneRow','orbitRing','codeBody','blowAway',...(out.contours?.edges.length?['contourFlow']:[])]:['layerExplode',...(out.contours?.edges.length?['contourFlow']:[]),'camera:sketchWords','camera:pressFront','camera:headStack'];out.motion.effect=pool[seedHash(out.motion.seed,'motion',comps.indexOf(c))%pool.length];}
+if(out.motion.effect==='contourFlow'&&!out.contours.edges.length)throw Error('No se encontraron conexiones de contorno en este fondo. Reduce la sensibilidad de bordes o elige otro efecto.');
+const error=['contourTrace','engravingFlow','pixelMemory','ribbonFlow','contourFlow'].includes(out.motion.effect)||out.motion.effect.startsWith('camera:')?'':window.SLLayerMotion.capabilities(out.scene,out.motion.effect);
+if(out.motion.effect!=='none'&&error)throw Error(error);
+return out})}
+function drawContourMotion(ctx,frame,t){
+ const w=ctx.canvas.width,h=ctx.canvas.height,data=frame.contours,power=frame.motion.amount/100;
+ window.SLLayerMotion.flat(ctx,frame.scene,w,h,0,p=>p.role==='background');
+ if(power>0){
+  ctx.save();ctx.strokeStyle=data.color;ctx.fillStyle=data.color;ctx.lineWidth=Math.max(1,w*.0018);
+  const point=i=>({x:data.points[i].x/data.width*w,y:data.points[i].y/data.height*h});
+  data.edges.forEach(([a,b],i)=>{const p=point(a),q=point(b),phase=(t+i*.037)%1;
+   ctx.globalAlpha=power*(.15+.65*(.5+.5*Math.sin(2*Math.PI*(t+i*.09))));
+   ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();
+   ctx.globalAlpha=power;ctx.beginPath();ctx.arc(p.x+(q.x-p.x)*phase,p.y+(q.y-p.y)*phase,Math.max(1.2,w*.003),0,2*Math.PI);ctx.fill();
+  });ctx.restore();
+ }
+ window.SLLayerMotion.flat(ctx,frame.scene,w,h,0,p=>p.role!=='background');
+}
+function drawMotion(t,target,frames){let c=target.getContext('2d'),w=target.width,h=target.height,n=frames.length,idx=Math.min(n-1,Math.floor(t*n)),local=Math.min(.999999,t*n-idx),mode=frames[idx].motion?.mode||$('motionMode').value,z=1,dx=0,dy=0;if(mode==='push')z=1+local*.07;if(mode==='pull')z=1.07-local*.07;if(mode==='pan'){z=1.08;dx=(.5-local)*w*.05}if(mode==='vertical'){z=1.08;dy=(.5-local)*h*.05}c.save();c.setTransform(1,0,0,1,0,0);c.fillStyle='#101716';c.fillRect(0,0,w,h);c.translate(w/2+dx,h/2+dy);z+=audioPulse(t*motionDuration());c.scale(z,z);const frame=frames[idx];
+if(frame.scene&&frame.motion?.effect!=='none'){
+ const surface=frame.surface||(frame.surface=document.createElement('canvas'));surface.width=w;surface.height=h;
+ if(frame.motion.effect.startsWith('camera:'))window.SLCameraEffects.composite(surface.getContext('2d'),frame,window.SLCameraEffects.settings(frame.motion.effect.slice(7),frame.motion.amount,frame.motion.text),local);
+ else if(['contourTrace','engravingFlow','pixelMemory','ribbonFlow'].includes(frame.motion.effect))drawDesignMotion(surface.getContext('2d'),frame,local);
+ else if(frame.motion.effect==='contourFlow')drawContourMotion(surface.getContext('2d'),frame,local);
+ else window.SLLayerMotion.render(surface.getContext('2d'),frame.scene,{id:frame.motion.effect,amount:frame.motion.amount,text:frame.motion.text,seed:frame.motion.seed,time:local*frame.motion.duration,duration:frame.motion.duration});
+ c.drawImage(surface,-w/2,-h/2,w,h);
+}else c.drawImage(frame,-w/2,-h/2,w,h);c.restore()}
+function stopMotion(redraw=true){motionState.running=false;if(motionState.raf)cancelAnimationFrame(motionState.raf);motionState.raf=0;motionState.frames=[];$('motionPlay').disabled=false;$('motionPlay').textContent='▶ Vista previa';$('stagePlay').textContent='▶ Play';if(redraw)drawAll()}
+function startMotion(){
+ if(motionState.encoding)return status('Espera a que termine la exportación.');
+ if(motionState.running){stopMotion();return;}
+ if(!images.background)return status('Carga una fotografía antes de reproducir.');
+ stopMotion(false);compare=false;edgePreview=false;designPreview=false;cv.style.animation='none';
+ try{
+  motionState.frames=preparedFrames(360);
+  const fixed=motionState.frames.every(f=>(f.motion.effect==='none'||f.motion.amount===0)&&f.motion.mode==='none');
+  if(fixed){motionState.frames=[];return status('Esta configuración es una imagen fija. Elige Motion por semilla o un efecto por capas.');}
+  motionState.running=true;motionState.started=performance.now();motionState.elapsed=0;
+  $('motionPlay').textContent='Ⅱ Pausar';$('stagePlay').textContent='Ⅱ Pausar';
+  const duration=motionState.frames[0].motion.duration;
+  const loop=now=>{
+   if(!motionState.running)return;
+   try{
+    const elapsed=(now-motionState.started)/1000,t=$('motionLoop').checked?(elapsed%duration)/duration:Math.min(1,elapsed/duration);
+    drawMotion(t,cv,motionState.frames);motionState.elapsed=elapsed;$('motionClock').textContent=(t*duration).toFixed(2)+' s';$('motionProgress').value=t*100;
+    if(t<1||$('motionLoop').checked)motionState.raf=requestAnimationFrame(loop);else stopMotion();
+   }catch(e){stopMotion();status('Motion detenido: '+e.message);}
+  };
+  drawMotion(0,cv,motionState.frames);motionState.raf=requestAnimationFrame(loop);
+  status('Reproduciendo '+motionState.frames[0].motion.effect+' · vista previa y exportación comparten el render.');
+ }catch(e){stopMotion();status('No se pudo preparar motion: '+e.message);}
+}
+$('motionPlay').onclick=startMotion;$('motionStop').onclick=()=>stopMotion();
 $('motionAudio').onchange=e=>{motionState.audio=e.target.files?.[0]||null;status(motionState.audio?'Audio seleccionado para la exportación de video.':'Audio retirado.')};
 async function exportMotion(kind){if(motionState.encoding)return;if(!images.background){status('Carga una fotografía antes de exportar.');return}stopMotion();motionState.encoding=true;$('exportGif').disabled=true;$('exportVideo').disabled=true;$('motionProgress').value=0;try{let duration=motionDuration(),fps=Number($('motionFps').value),short=kind==='gif'?360:720,frames=preparedFrames(short),[w,h]=motionDimensions(short);status('Preparando '+(kind==='gif'?'GIF':'video')+'; mantén la pestaña abierta.');let draw=(t,out)=>drawMotion(t,out,frames),update=t=>{$('motionProgress').value=Math.round(t*100)};if(kind==='gif'){let blob=await SLOffline.renderGif({draw,duration,fps:Math.min(fps,10),width:w,height:h,update});download(blob,'MSCCS_SECUENCIA.gif');status('GIF creado. El GIF no incluye audio.')}else{let out=await SLOffline.recordVideo({draw,duration,fps,width:w,height:h,update,audioFile:motionState.audio});download(out.blob,'MSCCS_SECUENCIA.'+out.extension);status('Video creado en formato '+out.extension.toUpperCase()+'. Revisa el archivo antes de publicar.')}}catch(e){status('No se pudo exportar: '+e.message)}finally{motionState.encoding=false;$('exportGif').disabled=false;$('exportVideo').disabled=false}}
 $('exportGif').onclick=()=>exportMotion('gif');$('exportVideo').onclick=()=>exportMotion('video');
-const settingsBeforeMotion=settings,applyBeforeMotion=applySettings;settings=function(){return {...settingsBeforeMotion(),motion:{mode:$('motionMode').value,sequence:$('sequenceMode').value,duration:$('motionDuration').value,fps:$('motionFps').value,reactive:$('audioReactive').checked,intensity:$('audioIntensity').value}}};applySettings=function(data){applyBeforeMotion(data);if(data.motion){$('motionMode').value=data.motion.mode||'none';$('sequenceMode').value=data.motion.sequence||'one';$('motionDuration').value=data.motion.duration||'5';$('motionFps').value=data.motion.fps||'15';$('audioReactive').checked=!!data.motion.reactive;$('audioIntensity').value=data.motion.intensity??40}motionState.audio=null;audioGeneration++;audioEnvelope=[];$('motionAudio').value='';status('Proyecto restaurado. Selecciona nuevamente el audio, si lo necesitas.')}
+const settingsBeforeMotion=settings,applyBeforeMotion=applySettings;settings=function(){return {...settingsBeforeMotion(),motion:{auto:$('autoStudioMotion').checked,effect:$('studioMotionEffect').value,amount:$('studioMotionAmount').value,text:$('studioMotionText').value,loop:$('motionLoop').checked,mode:$('motionMode').value,sequence:$('sequenceMode').value,duration:$('motionDuration').value,fps:$('motionFps').value,reactive:$('audioReactive').checked,intensity:$('audioIntensity').value}}};applySettings=function(data){applyBeforeMotion(data);if(data.motion){$('motionLoop').checked=data.motion.loop!==false;$('autoStudioMotion').checked=data.motion.auto===true;$('studioMotionEffect').value=data.motion.effect||'none';$('studioMotionAmount').value=data.motion.amount??50;$('studioMotionText').value=data.motion.text||'';$('motionMode').value=data.motion.mode||'none';$('sequenceMode').value=data.motion.sequence||'one';$('motionDuration').value=data.motion.duration||'5';$('motionFps').value=data.motion.fps||'15';$('audioReactive').checked=!!data.motion.reactive;$('audioIntensity').value=data.motion.intensity??40}motionState.audio=null;audioGeneration++;audioEnvelope=[];$('motionAudio').value='';status('Proyecto restaurado. Selecciona nuevamente el audio, si lo necesitas.')}
 </script><script>
 'use strict';
 let showSceneInspector=false;
@@ -1115,7 +1186,7 @@ if (window.parent !== window) {
         transferring=false;
         status('La aplicación no confirmó el guardado. Revisa la Biblioteca.');
       },30000);
-      send({type:'SUPREMO_ESTUDIO_EXPORT',destination,files,project,layerScenes:selected.map(composition=>captureLayerScene(composition)),indices:all?[0,1,2,3]:[project.current]});
+      send({type:'SUPREMO_ESTUDIO_EXPORT',destination,files,project,layerScenes:selected.map(composition=>captureLayerScene(composition)),indices:all?selected.map((_,index)=>index):[project.current]});
       status('Guardando la composición…');
     } catch(error) {
       transferring=false;
@@ -1752,8 +1823,8 @@ $('saveTrack').onclick=()=>{
 </script><script>if(document.fonts)Promise.all([document.fonts.load('800 24px "Saira Semi Condensed"'),document.fonts.load('700 14px "IBM Plex Sans"')]).then(()=>drawAll(),()=>{});</script><script>
 'use strict';
 // Independent, versioned variation streams. Source pixels and manual calibration remain project inputs.
-const legacyVariantEngine='msccs-seed-1',variantEngine='msccs-seed-4';
-const variantEngines=new Set([legacyVariantEngine,'msccs-seed-2','msccs-seed-3',variantEngine]);
+const legacyVariantEngine='msccs-seed-1',variantEngine='msccs-seed-6';
+const variantEngines=new Set([legacyVariantEngine,'msccs-seed-2','msccs-seed-3','msccs-seed-4','msccs-seed-5',variantEngine]);
 const seedDomains = ['layout','color','field'];
 const colorKeys = ['palette','paletteInk','paletteBox','paletteAccent','styleExtra','stylePower','lightExtra','blurExtra'];
 let variation = {engine:variantEngine, channels:null};
@@ -1769,7 +1840,8 @@ function seedHash(value, ...parts){
 }
 const limitSeedValue=(value,low,high)=>Math.min(high,Math.max(low,value));
 function makeVariants(existing,active,domains,options){
-  if(['msccs-seed-3',variantEngine].includes(options.engine))return generateDesign(existing,active,domains,options);
+  if(options.engine===variantEngine)return generateStructuralDesign(existing,active,domains,options);
+  if(['msccs-seed-3','msccs-seed-4','msccs-seed-5'].includes(options.engine))return generateDesign(existing,active,domains,options);
   const layoutKeys=['tx','ty','px','py'];
   const locations=[
     [.07,.11,.72,.84],[.07,.62,.68,.72],[.31,.08,.5,.85],[.45,.18,.32,.83],
@@ -1836,31 +1908,31 @@ function updateVariantReadout(){
   $('designSeed').value=$('seedExtra').value;
 }
 function changeVariants(domains,{advance=false,includeLayers=false,preset=null,newSeries=false,overrides={}}={}){
+  if(motionState.running)stopMotion();
   syncActive();comps[current]._visual=getVisual();
   const root=unsignedSeed($('seedExtra').value);
   const channels=newSeries||!variation.channels?Object.fromEntries(seedDomains.map(name=>[name,root])):{...variation.channels};
   for(const name of domains)channels[name]=overrides[name]??(advance&&!newSeries?(channels[name]+1)>>>0:root);
   const engine=newSeries?variantEngine:variation.engine;
+  if(engine===variantEngine){comps=[comps[current]];current=0;}
   variation={engine,channels};
   seed=root;
   comps=makeVariants(comps,comps[current],domains,{engine,channels,includeLayers,preset,
     lockText:$('lockText').checked,lockProduct:$('lockProduct').checked});
   window.__restoreExtras();compare=false;drawAll();updateVariantReadout();
-  status('Cuatro propuestas actualizadas.');
+  status(comps.length===1?'Diseño actualizado.':'Proyecto anterior actualizado.');
 }
 function makeSeries(advance){
   const next=(unsignedSeed($('seedExtra').value)+(advance?1:0))>>>0;
   $('seedExtra').value=String(next);
   designPreview=false;$('designMap').setAttribute('aria-pressed','false');
-  const domains=$('fxVary').checked?seedDomains:seedDomains.slice(0,2);
+  const domains=advance||$('fxVary').checked?seedDomains:seedDomains.slice(0,2);
   changeVariants(domains,{includeLayers:true,preset:commercialPresets[$('commercialPreset').value],newSeries:true});
+  if($('autoStudioMotion').checked&&typeof requestAnimationFrame==='function'&&!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)$('motionPlay').onclick();
 }
 $('useSeed').onclick=()=>makeSeries(false);
-$('generate').onclick=()=>{
-  $('seedExtra').value=$('designSeed').value;
-  makeSeries(false);
-};
-$('repeatDesign').onclick=$('generate').onclick;
+$('repeatDesign').onclick=()=>{if(variation.channels&&unsignedSeed($('designSeed').value)===unsignedSeed($('seedExtra').value)){changeVariants(seedDomains,{overrides:variation.channels,includeLayers:true,preset:commercialPresets[$('commercialPreset').value]});return;}$('seedExtra').value=$('designSeed').value;makeSeries(false);};
+$('generate').onclick=()=>{$('seedExtra').value=$('designSeed').value;makeSeries(true);};
 $('varyAll').onclick=()=>makeSeries(true);
 $('varyLayout').onclick=()=>changeVariants(['layout'],{advance:true});
 $('varyColor').onclick=()=>changeVariants(['color'],{advance:true});
@@ -1908,12 +1980,14 @@ function snapshotLook(){
 }
 function applyLook(look){
   if(look?.format!=='supremo-look'||look.version!==1||!variantEngines.has(look.engine)||
-     (!Object.hasOwn(ratios,look.ratio)&&look.ratio!=='custom')||!Array.isArray(look.proposals)||look.proposals.length!==4||
+     (!Object.hasOwn(ratios,look.ratio)&&look.ratio!=='custom')||!Array.isArray(look.proposals)||(look.proposals.length<1||look.proposals.length>4)||
      !look.proposals.every(item=>item&&['tx','ty','px','py'].every(key=>Number.isFinite(item[key])&&item[key]>=0&&item[key]<=1)))
     throw Error('Formato de look inválido.');
   syncActive();comps[current]._visual=getVisual();
-  comps=comps.map((item,index)=>{
-    const {tx,ty,px,py,visual,generated}=look.proposals[index];
+  const previous=comps,active=comps[current];
+  comps=look.proposals.map((proposal,index)=>{
+    const item=previous[index]||active;
+    const {tx,ty,px,py,visual,generated}=proposal;
     const values={...(item._visual||getVisual())};
     for(const id of visualIds){
       const field=$(id),value=visual?.[id];
@@ -1923,6 +1997,8 @@ function applyLook(look){
         if([...field.options].some(option=>option.value===value))values[id]=value;
       }else if(field.type==='color'){
         if(typeof value==='string'&&/^#[0-9a-f]{6}$/i.test(value))values[id]=value;
+      }else if(['designArchitectureValue','designTreatmentValue','designMotionEffect','structuralEngine'].includes(id)){
+        const allowed={designArchitectureValue:StudioContourDesign.architectures.map(x=>x.id),designTreatmentValue:StudioContourDesign.treatments.map(x=>x[0]),designMotionEffect:['contourTrace','engravingFlow','pixelMemory','ribbonFlow','dollyZoom','camera:sketchWords'],structuralEngine:['','studio-structure-1']};if(allowed[id].includes(value))values[id]=value;
       }else if(id==='fxPatternSeed'||id==='fxFinishSeed'){
         if(value===''||(typeof value==='string'&&/^[0-9]{1,10}$/.test(value)))values[id]=value;
       }else if(typeof value==='string'&&value.length<24&&Number.isFinite(Number(value))){
@@ -1938,6 +2014,7 @@ function applyLook(look){
         x:clampStudio(layer.x,0,100),y:clampStudio(layer.y,0,100),opacity:clampStudio(layer.opacity,0,100),...shapeSettings(layer)}))]:item._extra;
     return {...item,...($('lockText').checked?{}:{tx,ty}),...($('lockProduct').checked?{}:{px,py}),_visual:values,_extra:layers};
   });
+  current=Math.min(current,comps.length-1);
   $('format').value=look.ratio;
   if([...$('designFamily').options].some(option=>option.value===look.designFamily))$('designFamily').value=look.designFamily;
   if(look.ratio==='custom'&&Array.isArray(look.dimensions)){
@@ -2060,12 +2137,12 @@ function generateDesign(existing,active,domains,options){
   const ref=designMapFor(images.reference,W,H);
   const paletteSource=ref?{...ref,reference:true}:map;
   const category=$('designFamily').value,variantSeed=options.channels.layout;
-  const ctx=cv.getContext('2d'),short=Math.min(W,H);
+  const ctx=cv.getContext('2d'),short=Math.min(W,H),priorTitles=[],priorLogos=[];
   const title=$('headline').value,cta=$('cta').value;
   return existing.map((item,index)=>{
-    const modern=options.engine==='msccs-seed-4',familyPool=modern?StudioDesign.families:StudioDesign.families.slice(0,18);
+    const full=options.engine==='msccs-seed-5',modern=full||options.engine==='msccs-seed-4',familyPool=modern?StudioDesign.families:StudioDesign.families.slice(0,18);
     const profile=seededProfile(category,variantSeed,index,modern);
-    const layers=copyLayers(item._extra?.length?item._extra:options.includeLayers?active._extra||[]:[]);
+    const layers=copyLayers(full&&options.includeLayers?active._extra||[]:item._extra?.length?item._extra:options.includeLayers?active._extra||[]:[]);
     const next={...item,_extra:layers,_visual:{...item._visual}};
     const visual=next._visual;
     if(domains.includes('color')){
@@ -2082,18 +2159,32 @@ function generateDesign(existing,active,domains,options){
     if(domains.includes('layout')){
       const variation=random(seedHash(variantSeed,'placement',index));
       if(options.lockProduct){next.px=active.px;next.py=active.py;}
+      if(full){
+        if(!options.lockProduct){next.px=[.30,.70,.38,.64][(index+variantSeed%4)%4];next.py=[.84,.78,.69,.88][index];}
+        if(images.logo&&!$('lockLogo').checked){
+          const lw=Number(active._visual?.logoSize||$('logoSize').value)/100;
+          const source=logoSourceRect(images.logo),lh=lw*W/H*source.h/source.w;
+          const corners=[[.025,.025],[Math.max(.025,.975-lw),.025],[.025,Math.max(.025,.975-lh)],[Math.max(.025,.975-lw),Math.max(.025,.975-lh)],[.025,.45],[Math.max(.025,.975-lw),.45],[.025,.23],[Math.max(.025,.975-lw),.23]];
+          const blocked=reservedDesignZones({...next,_visual:{...visual,logoSize:'0'}},W,H).filter(z=>z.w>0);
+          const offset=(index+seedHash(variantSeed,'logo')%4)%4;let bestLogo=null;
+          for(let k=0;k<corners.length;k++){const [x,y]=corners[(offset+k)%corners.length],rect={x,y,w:lw,h:lh};
+            const score=blocked.reduce((n,z)=>n+StudioDesign.overlap(rect,z),0)*18+priorLogos.reduce((n,z)=>n+StudioDesign.overlap(rect,z),0)*3+k*.0001;
+            if(!bestLogo||score<bestLogo.score)bestLogo={...rect,score};}
+          visual.logoX=String(bestLogo.x*100);visual.logoY=String(bestLogo.y*100);priorLogos.push(bestLogo);
+        }else for(const key of ['logoX','logoY','logoSize'])visual[key]=active._visual?.[key]??$(key).value;
+      }
       const reserved=reservedDesignZones(next,W,H);
       if(!options.lockText){
         let fs=Math.round(clampStudio(profile.font+(variation()-.5)*1.4,3,10)*10)/10;
         const pad=modern&&ref?.geometry?Math.round(clampStudio(ref.geometry.marginX*45,1.5,4.5)*10)/10:profile.pad;
         ctx.font=`800 ${W*fs/100}px "Saira Semi Condensed", sans-serif`;
         const size=width=>Math.min(.89,(W*(pad*2+fs*1.12*wrap(ctx,title,W*(width-pad/50)).length+(cta?fs*.8:0))/100)/H);
-        let choice=StudioDesign.placement({profile,map,reference:ref,reserved,random:variation,size,index,modern});
+        let choice=StudioDesign.placement({profile,map,reference:ref,reserved,random:variation,size,index,modern,diverse:full?priorTitles:null});
         if(modern){
           const initialFont=fs;let best={choice,fs,score:choice.score};
           for(const scale of [.87,.74,.62]){
             fs=Math.max(2.8,Math.round(initialFont*scale*10)/10);ctx.font=`800 ${W*fs/100}px "Saira Semi Condensed", sans-serif`;
-            const candidate=StudioDesign.placement({profile,map,reference:ref,reserved,random:variation,size,index,modern});
+            const candidate=StudioDesign.placement({profile,map,reference:ref,reserved,random:variation,size,index,modern,diverse:full?priorTitles:null});
             const score=candidate.score+(1-scale)*.7;
             if(score<best.score)best={choice:candidate,fs,score};
           }
@@ -2114,6 +2205,26 @@ function generateDesign(existing,active,domains,options){
       }else{
         next.tx=active.tx;next.ty=active.ty;
         for(const key of ['fontSize','textWidth','boxPadding','boxHeight'])visual[key]=active._visual?.[key]??visual[key];
+      }
+    }
+    if(full&&domains.includes('layout')){
+      const titleRect={x:next.tx,y:next.ty,w:Number(visual.textWidth||45)/100,h:.17};priorTitles.push(titleRect);
+      if(options.includeLayers){
+        const occupied=[...reservedDesignZones(next,W,H),titleRect];
+        for(const layer of next._extra){
+          if(layer.locked||layer.generated||layer.hidden)continue;
+          // Measure the complete text box, including its background and padding.
+          const b=layerBox(layer,ctx,W,H),bw=Math.min(.94,b.w/W),bh=Math.min(.94,b.h/H);
+          const rng=random(seedHash(variantSeed,'layer',index,layer.id));let best=null;
+          for(let k=0;k<80;k++){
+            const rect={x:.025+rng()*Math.max(0,.95-bw),y:.025+rng()*Math.max(0,.95-bh),w:bw,h:bh};
+            const score=occupied.reduce((v,z)=>v+StudioDesign.overlap(rect,z),0)/Math.max(.001,bw*bh)+rng()*.025;
+            if(!best||score<best.score)best={...rect,score};
+          }
+          layer.x=(best.x+(layer.type==='image'?bw/2:0))*100;
+          layer.y=(best.y+(layer.type==='image'?bh/2:0))*100;
+          occupied.push(best);
+        }
       }
     }
     if(domains.includes('field'))Object.assign(visual,designField(profile,options.channels.field,index));
@@ -2275,7 +2386,7 @@ function captureLayerScene(composition){
   const descriptors=[['background','background','Fondo'],...(images.product?[['product','product','Producto']]:[]),['title','title','Título'],...(images.logo?[['logo','logo','Logo']]:[]),...(images.qr?[['qr','qr','QR']]:[]),...(composition._extra||[]).filter(l=>!l.hidden).map(l=>['extra:'+l.id,'overlay',l.name||l.text||'Capa'])];
   if(width*height*descriptors.length>96000000)throw Error('La escena supera el presupuesto de memoria: reduce resolución o cantidad de capas.');
   const planes=descriptors.map(([id,role,name])=>{const c=document.createElement('canvas');render(c,composition,{plane:id});return {id,role,name,src:c.toDataURL?c.toDataURL('image/png'):c.canvas.toDataURL('image/png')};});
-  return {version:1,width,height,planes};
+  return {version:1,width,height,planes,contourRecipe:{...composition._visual}};
 }
 let maskPainting=null;
 $('paintLayerMask').onclick=()=>{
@@ -2302,5 +2413,106 @@ $('applyLayerMask').onclick=()=>{
 $('clearLayerMask').onclick=()=>{const layer=activeLayer();if(layer){rememberLayers();delete layer.mask;drawAll();}};
 
 let diagnosticRestores=0;const restoreBeforeDiagnostics=restoreStudio;restoreStudio=async function(project){await restoreBeforeDiagnostics(project);diagnosticRestores++;};
-window.StudioDiagnostics={restores:()=>diagnosticRestores,hasBackground:()=>Boolean(images.background),hasProduct:()=>Boolean(images.product),snapshot:()=>snapshotStudio(),planes:()=>captureLayerScene(comps[current])};
+document.addEventListener?.('pointerdown',e=>{if(motionState.running&&e.target!==$('stagePlay')&&e.target!==$('motionPlay'))stopMotion();},true);
+document.addEventListener?.('input',()=>{if(motionState.running)stopMotion();},true);
+$('stagePlay').onclick=()=>$('motionPlay').onclick();$('stageStop').onclick=()=>stopMotion();
+window.StudioDiagnostics={restores:()=>diagnosticRestores,hasBackground:()=>Boolean(images.background),hasProduct:()=>Boolean(images.product),snapshot:()=>snapshotStudio(),planes:()=>captureLayerScene(comps[current]),motionFrame:(time=0,short=160)=>{const frames=preparedFrames(short),out=document.createElement('canvas');out.width=frames[0].width;out.height=frames[0].height;drawMotion(time,out,frames);return out;}};
+
+// Seed-6: one design with a genuinely different structural program on each generation.
+for(const a of StudioContourDesign.architectures){const o=document.createElement('option');o.value=a.id;o.textContent=a.label;$('designArchitecture').append(o);}
+for(const [id,label] of StudioContourDesign.treatments){const o=document.createElement('option');o.value=id;o.textContent=label;$('designTreatment').append(o);}
+const structuralDefaults={designArchitectureValue:'full',designTreatmentValue:'photo',designMotionEffect:'contourTrace',contourLevels:'7',contourSpacing:'3',contourLine:'1.4',contourPower:'65',structuralSeed:'0',structuralEngine:''};
+// Hidden recipe fields and visible controls participate in the existing per-composition serializer.
+for(const [id,value] of Object.entries(structuralDefaults)){
+ if(!$(id)){const e=document.createElement('input');e.id=id;e.type='hidden';e.value=value;document.body.append(e);}
+}
+visualIds.push(...Object.keys(structuralDefaults));
+const structureGetVisual=getVisual,structurePutVisual=putVisual;
+getVisual=function(){const v=structureGetVisual();for(const id of Object.keys(structuralDefaults))v[id]=$(id).value;return v;};
+putVisual=function(v){structurePutVisual(v);if(v)for(const [id,value] of Object.entries(structuralDefaults))$(id).value=v[id]??value;};
+const structureSettings=settings,structureApply=applySettings;
+settings=function(){return {...structureSettings(),structurePreferences:{architecture:$('designArchitecture').value,treatment:$('designTreatment').value},structure:Object.fromEntries(Object.keys(structuralDefaults).map(id=>[id,$(id).value]))};};
+applySettings=function(s){structureApply(s);$('designArchitecture').value=s.structurePreferences?.architecture||'auto';$('designTreatment').value=s.structurePreferences?.treatment||'auto';if(s.structure)putVisual({...getVisual(),...s.structure});};
+const contourMaps=new WeakMap();
+function contourMapFor(image,W,H,v){
+ let memo=contourMaps.get(image);if(!memo){memo=new Map();contourMaps.set(image,memo);}
+ const [w,h]=proxyDimensions(W,H,110,150),levels=Number(v.contourLevels||7),spacing=Number(v.contourSpacing||3),seed=Number(v.structuralSeed||1);
+ const key=[w,h,levels,spacing,seed].join(':');
+ if(!memo.has(key)){
+  if(memo.size>=8)memo.delete(memo.keys().next().value);
+  memo.set(key,StudioContourDesign.analyze(sampleDesignImage(image,w,h),w,h,{levels,spacing,seed}));
+ }
+ return memo.get(key);
+}
+function generateStructuralDesign(existing,active,domains,options){
+ const next=generateDesign([active],active,domains,{...options,engine:'msccs-seed-5'})[0],v=next._visual;
+ const n=options.channels.layout>>>0,architectures=StudioContourDesign.architectures;
+ const selected=$('designArchitecture').value,architecture=architectures.find(a=>a.id===selected)||architectures[n%architectures.length];
+ if(domains.includes('layout')){
+  v.structuralEngine='studio-structure-1';v.designArchitectureValue=architecture.id;
+  if(!$('lockText').checked){
+   [next.tx,next.ty]=architecture.title;v.textWidth=String(architecture.title[2]*100);
+   v.fontSize=String(architecture.id==='split'?4.1:architecture.id==='mosaic'?4.6:architecture.id==='full'?6.1:4.9);v.boxPadding='1.5';v.boxHeight='0';
+  }
+  // Background-only layouts preserve the subject already in the photograph. A separate product remains a plane.
+  if(images.product&&!options.lockProduct&&!scene.anchor){
+   const positions={split:[.74,.82],mosaic:[.70,.67],circle:[.5,.70],band:[.72,.59],triptych:[.65,.82],contact:[.70,.80]};
+   [next.px,next.py]=positions[architecture.id]||[.68,.72];
+  }
+ }
+ if(domains.includes('field')){
+  const f=options.channels.field>>>0,choice=$('designTreatment').value;
+  const treatment=choice==='auto'?StudioContourDesign.treatments[(Math.floor(f/architectures.length)+f)%StudioContourDesign.treatments.length][0]:choice;
+  Object.assign(v,{designTreatmentValue:treatment,structuralSeed:String(f),contourLevels:String(4+f%10),contourSpacing:String(1+f%5),contourLine:String(.8+(f%8)*.3),contourPower:String(50+f%31),fxNodes:false,fxGrid:false,fxContour:false,fxDither:'off',fxFinish:'none'});
+  v.designMotionEffect=({contours:'contourTrace',engraving:'engravingFlow',pixels:'pixelMemory',ribbons:'ribbonFlow',duo:'contourTrace',photo:images.product?'dollyZoom':'camera:sketchWords'})[treatment];
+ }
+ // The logo follows free corners; unlocked extra layers keep their text, box and mask from seed-5.
+ if(domains.includes('layout')&&images.logo&&!$('lockLogo').checked){
+  const lw=Number(v.logoSize||18)/100,src=logoSourceRect(images.logo),[W,H]=studioDimensions(),lh=lw*W/H*src.h/src.w;
+  const corners=[[.025,.025],[Math.max(.025,.975-lw),.025],[.025,Math.max(.025,.95-lh)],[Math.max(.025,.975-lw),Math.max(.025,.95-lh)]];
+  let [x,y]=corners[n%4];const title={x:next.tx,y:next.ty,w:Number(v.textWidth)/100,h:.19};
+  for(let k=0;k<4;k++){const p=corners[(n+k)%4];if(!StudioDesign.overlap({x:p[0],y:p[1],w:lw,h:lh},title)){[x,y]=p;break;}}
+  v.logoX=String(x*100);v.logoY=String(y*100);
+ }
+ for(const layer of next._extra||[])if(layer.generated&&!layer.locked&&domains.includes('layout')){layer.x=next.tx*100;layer.y=Math.max(0,next.ty*100-2);}
+ return [next];
+}
+const coverBeforeStructures=cover;
+cover=function(ctx,image,W,H){
+ const v=getVisual();if(v.structuralEngine!=='studio-structure-1'){coverBeforeStructures(ctx,image,W,H);return;}
+ const pal=currentPalette();
+ StudioContourDesign.background(ctx,image,W,H,{architecture:v.designArchitectureValue,box:pal.box,accent:pal.accent,seed:Number(v.structuralSeed)},coverBeforeStructures);
+ if(v.designTreatmentValue!=='photo'){
+  // Treatment remains on the background plane. Product/logo/QR are recomposited above it.
+  const map=contourMapFor(image,W,H,v),overlay=document.createElement('canvas');
+  overlay.width=map.w*3;overlay.height=map.h*3;
+  StudioContourDesign.paint(overlay.getContext('2d'),map,{kind:v.designTreatmentValue,amount:Number(v.contourPower),line:Number(v.contourLine)*overlay.width/W,color:pal.accent,paper:pal.box,seed:Number(v.structuralSeed)});
+  ctx.drawImage(overlay,0,0,W,H);
+ }
+};
+function drawDesignMotion(ctx,frame,t){
+ window.SLLayerMotion.render(ctx,frame.scene,{id:frame.motion.effect,amount:frame.motion.amount,seed:frame.motion.seed,time:t*frame.motion.duration,duration:frame.motion.duration});
+}
+
+const prepareBeforeStructures=preparedFrames;
+preparedFrames=function(short){return prepareBeforeStructures(short).map((frame,i)=>{frame.designVisual={...comps[Math.min(comps.length-1,$('sequenceMode').value==='four'?i:current)]._visual};return frame;});};
+const drawAllBeforeStructures=drawAll;
+drawAll=function(){drawAllBeforeStructures();const v=comps[current]?._visual||{},a=StudioContourDesign.architectures.find(a=>a.id===v.designArchitectureValue),t=StudioContourDesign.treatments.find(a=>a[0]===v.designTreatmentValue);$('designSummary').textContent=v.structuralEngine?`${a?.label||'Libre'} · ${t?.[1]||'Foto'} · Semilla ${$('seedExtra').value}`:'Diseño editable · genera para explorar las nuevas estructuras';};
+for(const id of ['contourLevels','contourSpacing','contourLine','contourPower'])$(id).addEventListener('input',()=>{if(motionState.running)stopMotion(false);drawAll();});
+$('applyContour').onclick=()=>{
+ if(motionState.running)stopMotion(false);
+ const v=getVisual();v.structuralEngine='studio-structure-1';v.designArchitectureValue=$('designArchitecture').value==='auto'?v.designArchitectureValue:$('designArchitecture').value;v.designTreatmentValue=$('designTreatment').value==='auto'?v.designTreatmentValue:$('designTreatment').value;
+ putVisual(v);drawAll();status('Arquitectura y tratamiento aplicados al diseño actual.');
+};
+for(const id of ['designArchitecture','designTreatment'])$(id).addEventListener('input',()=>$('applyContour').onclick());
+for(const [id,axis,value] of [['alignLayerLeft','x',.035],['alignLayerCenter','x',.5],['alignLayerRight','x',.965],['alignLayerTop','y',.035],['alignLayerMiddle','y',.5],['alignLayerBottom','y',.965]])$(id).onclick=()=>{
+ const l=activeLayer();if(!l)return status('Selecciona una capa.');if(l.locked)return status('Desbloquea la capa para alinearla.');
+ if(motionState.running)stopMotion(false);rememberLayers();const [W,H]=studioDimensions(),b=layerBox(l,cv.getContext('2d'),W,H),size=axis==='x'?b.w/W:b.h/H;
+ const start=value===.5?(1-size)/2:value>.5?value-size:value;
+ l[axis]=(clampStudio(start,0,Math.max(0,1-size))+(l.type==='image'?size/2:0))*100;layerUI();drawAll();
+};
+window.StudioDiagnostics.motionState=()=>({running:motionState.running,elapsed:motionState.elapsed,frames:motionState.frames.length});
+
+drawAll();
+
 </script></body></html>

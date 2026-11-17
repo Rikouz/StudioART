@@ -1,14 +1,12 @@
-# StudioART · Supremo Líder 1.3.2
+# StudioART · Supremo Líder 1.3.4
 
-Editor local de imagen, composiciones y salidas PNG/GIF/video. Desarrollo continuado desde Supremo Líder 1.2.8 y 1.2.9.
+Editor local de imagen y motion. Abre **STUDIOART_PORTATIL.html** o extrae todas las carpetas y abre `ABRIR_SIN_SERVIDOR.html`.
 
-## Abrir
+El Estudio genera **un diseño por pulsación**. Las 30 familias se combinan con diez estructuras y seis tratamientos de fondo. Generar otro diseño avanza la semilla; Repetir semilla reproduce el resultado, incluidos los canales independientes. Arquitectura y tratamiento pueden fijarse, y las capas mantienen su edición libre y candados.
 
-Descarga el código y abre **STUDIOART_PORTATIL.html** en Chrome o Edge. Los módulos, scripts y tipografías se incluyen en esta base. El acceso a disco, almacenamiento y algunos formatos de video dependen del navegador.
+Play muestra movimiento y reloj en el lienzo, con pausa y bucle. Contornos continuos, grabado fluido, memoria de píxeles y cintas se comparten con Video. Los controles de capas, máscaras, formatos libres y aproximación por primitivas se conservan.
 
-En **Estudio de imagen**, carga tus archivos locales. Elige una categoría y una semilla para generar cuatro propuestas. El mismo contenido, formato y semilla producen la misma composición. Usa Color, Composición y Decoración para variar un canal, o Variar todo para pasar a otra serie.
-
-En Pro puedes editar capas, tamaño y posición del logo, fondos de texto, cuadros y formas, o elegir Formato libre entre 320 y 4096 px por lado. Referencia visual analiza un archivo local y aporta colores y actividad a la composición. Primitivas aproxima el fondo con rectángulos, elipses y triángulos y exporta SVG.
+Consulta [LEEME_PRIMERO.md](LEEME_PRIMERO.md) y [docs/AUDITORIA_1_3_4.md](docs/AUDITORIA_1_3_4.md) para uso, pruebas y límites. La ejecución integral en Chrome/Edge sigue pendiente por el fallo de arranque del navegador disponible.
 
 ## Desarrollo
 
@@ -34,7 +32,7 @@ El manifiesto se actualiza mediante `python3 scripts/refresh_manifest.py --write
 
 ## Recursos locales
 
-Esta base comienza con una biblioteca vacía. Las fotografías, productos, logos, QR, renders y proyectos con datos binarios se incorporan desde archivos locales. El historial Git de esta base parte del repositorio StudioART.
+Esta base comienza con una biblioteca vacía. Las fotografías, productos, logos, QR, renders y proyectos con datos binarios se incorporan desde archivos locales. La base editable de código se versiona en este repositorio; los medios personales y los proyectos con datos binarios se mantienen fuera de esta distribución.
 
 Al preparar una exportación de código desde otra copia de desarrollo, usa `scripts/prepare_code_release.py` hacia una carpeta separada. El script prepara fuentes y limpia datos multimedia embebidos. `qa/qa_source_release.py` revisa extensiones y cadenas base64. La variante `--tracked` revisa la selección versionada antes de subirla. Las exclusiones de `.gitignore` añaden otra capa de prevención.
 

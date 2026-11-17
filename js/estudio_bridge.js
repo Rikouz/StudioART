@@ -101,9 +101,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function validRecipe(project, indices, count) {
     return project?.format === 'msccs-piloto-integracion' &&
+      Array.isArray(project.comps) && project.comps.length>=1 && project.comps.length<=4 &&
       Array.isArray(indices) && indices.length === count &&
       new Set(indices).size === count &&
-      indices.every(index => Number.isInteger(index) && index >= 0 && index <= 3);
+      indices.every(index => Number.isInteger(index) && index >= 0 && index < project.comps.length);
   }
 
   async function storeRecipe(project) {

@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const {createCanvas,Image}=require('@napi-rs/canvas');
 const document={createElement:()=>createCanvas(1,1)},window={document,Image};
-const realm=vm.createContext({window,console});vm.runInContext(fs.readFileSync(path.join(__dirname,'../js/layer_motion.js'),'utf8'),realm);const fx=window.SLLayerMotion;
+const realm=vm.createContext({window,console});vm.runInContext(fs.readFileSync(path.join(__dirname,'../modulos/estudio_v5/contour_design.js'),'utf8'),realm);vm.runInContext(fs.readFileSync(path.join(__dirname,'../js/layer_motion.js'),'utf8'),realm);const fx=window.SLLayerMotion;
 function source(w,h,fill){const c=createCanvas(w,h);fill(c.getContext('2d'));return c;}
 function fixture(w,h){return {version:1,width:w,height:h,planes:[
  {id:'background',role:'background',image:source(w,h,g=>{g.fillStyle='#26384a';g.fillRect(0,0,w,h);g.fillStyle='#2d856e';g.fillRect(0,0,w*.4,h);})},
@@ -34,4 +34,4 @@ assert.throws(()=>draw(fixture(40,40),'paperTear',.5),/siguiente/);
 assert.deepEqual([...fx.peaks([new Float32Array([0,.5,-1,0])],2)],[.5,1]);
 const scene=fixture(30,30);scene.planes[1].mask={type:'polygon',points:[{x:0,y:0},{x:.5,y:0},{x:.5,y:1},{x:0,y:1}]};const c=draw(scene,'none',0);assert.notDeepEqual([...c.getContext('2d').getImageData(17,15,1,1).data],[215,51,41,255]);
 (async()=>{const raw={version:1,width:30,height:30,planes:scene.planes.map(({image,...p})=>({...p,src:image.toDataURL('image/png')}))};const decoded=await fx.decode(JSON.parse(JSON.stringify(raw)));assert.deepEqual(draw(decoded,'none',0).toBuffer('image/png'),c.toBuffer('image/png'));
-console.log('PASS: doce efectos con planos/datos reales, tres formatos, extremos exactos, máscara, keyframes, semillas, audio y reapertura.');})().catch(e=>{console.error(e);process.exitCode=1;});
+console.log('PASS: dieciséis efectos con planos/datos reales, tres formatos, extremos exactos, máscara, keyframes, semillas, audio y reapertura.');})().catch(e=>{console.error(e);process.exitCode=1;});

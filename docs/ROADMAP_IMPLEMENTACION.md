@@ -53,3 +53,10 @@
 - **Alta:** cambios de logo y QR. Mitigar inserción de PNG real y prueba de lectura.
 - **Media:** alta memoria / tiempo render video a 4K. Mitigar proxies 720/1080 y export determinista por lotes.
 - **Media:** persistencia IndexedDB bajo limpieza del navegador. Mitigar respaldos JSON y export ZIP binario V1.1.
+
+
+## Avance 1.3.4 · 17 de noviembre de 2026
+
+Implementado: flujo de diseño único, seed-6, diez arquitecturas estructurales, seis tratamientos de fondo, contornos conectados, campo tangente, cuatro efectos compartidos por Estudio/Video, Play con reloj y recuperación, alineación de capas, persistencia y compatibilidad de proyectos. Los detalles y la evidencia están en `AUDITORIA_1_3_4.md`.
+
+Pendiente para el cierre: auditoría real Chrome/Edge con PNG/GIF/video/audio y reapertura; segmentación de fotografía plana; análisis temporal del campo desde video fuente; revisión del material externo que continúa inaccesible. La revisión humana permanece al final del plan. No hay una pausa de desarrollo por aprobación entre estas mejoras.

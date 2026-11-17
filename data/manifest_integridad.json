@@ -1,11 +1,11 @@
 {
   "name": "SUPREMO_LIDER_OFFLINE",
-  "version": "1.3.2",
+  "version": "1.3.4",
   "files": [
     {
       "file": "ABRIR_SIN_SERVIDOR.html",
       "bytes": 338717,
-      "sha256": "f863661e7e6abf8b8bb4f7fdd60774c051a5c633d3c5133019bba0d324645409"
+      "sha256": "ff4c575c485aa024fb9c3402757943ac8e0cfb98eef0adfb3aab229a0b1d252c"
     },
     {
       "file": "ACTUALIZADOR_SUPREMO.html",
@@ -19,18 +19,18 @@
     },
     {
       "file": "LEEME_PRIMERO.md",
-      "bytes": 728,
-      "sha256": "00f614ec3b352a54eef37231813ece3d9074d318c54111dc7ce54eda3c121f4a"
+      "bytes": 1269,
+      "sha256": "63205cfb25839581471797111e0b6c0126aeea7d86aea239b6594dad9b4d7bb0"
     },
     {
       "file": "VERSION_SUPREMO.json",
-      "bytes": 3068,
-      "sha256": "d78dc856d50ab347275ca34a04c288a7af361669d47bb3104beeaa2546ce1423"
+      "bytes": 4129,
+      "sha256": "6ba50a818b835ace8cc6e85d0afd99c5e00ddbd82ea696fcfddc58f06a20275c"
     },
     {
       "file": "css/editor-workspace.css",
-      "bytes": 3371,
-      "sha256": "6e4bd6994fdf36c6de32df838b6f21d200f25de51c608d9ab550b622c8012770"
+      "bytes": 3905,
+      "sha256": "c1212c7355b06fa52d7baa00b9c23947901104863966f4d0465aae9ebec393f1"
     },
     {
       "file": "css/fix_v1_1.css",
@@ -74,8 +74,8 @@
     },
     {
       "file": "docs/ROADMAP_IMPLEMENTACION.md",
-      "bytes": 3877,
-      "sha256": "b7266f8b658b04468b17359c9cd38373d1b21941f9edcc6846a148ba20c42188"
+      "bytes": 4627,
+      "sha256": "a771096d445a5f1bcee58aff7a1d5b92b32d7ca7ca1a352072c61dc0f1858e49"
     },
     {
       "file": "docs/SPEC_SUPREMO_LIDER_V1.md",
@@ -105,7 +105,7 @@
     {
       "file": "index.html",
       "bytes": 338717,
-      "sha256": "f863661e7e6abf8b8bb4f7fdd60774c051a5c633d3c5133019bba0d324645409"
+      "sha256": "ff4c575c485aa024fb9c3402757943ac8e0cfb98eef0adfb3aab229a0b1d252c"
     },
     {
       "file": "js/app.js",
@@ -129,8 +129,8 @@
     },
     {
       "file": "js/estudio_bridge.js",
-      "bytes": 9926,
-      "sha256": "7eefa611c3abcabf40f261e7d98ee5ad89149e144d15533faf41bdc56286e898"
+      "bytes": 10036,
+      "sha256": "cdd8561b59cbe6cc2838afa62a334326234d2f5a670dc1c97ebc48cddd58388f"
     },
     {
       "file": "js/inline_media.js",
@@ -174,8 +174,8 @@
     },
     {
       "file": "modulos/creative_v10/ABRIR_EDITOR.html",
-      "bytes": 17322,
-      "sha256": "d571b14daeeee43616f9f609763ce91da10fc4b72eb493cb66e926e8986c1f12"
+      "bytes": 17383,
+      "sha256": "2aee04b855102ed0d4c8f0c9e365d2f3c8527de87527049b15425368d9a60230"
     },
     {
       "file": "modulos/creative_v10/LEEME_PRIMERO.md",
@@ -259,8 +259,8 @@
     },
     {
       "file": "modulos/estudio_v5/ESTUDIO_V5.html",
-      "bytes": 157978,
-      "sha256": "f3692801a1526cb5aa82c32f8cd5088400a872d3ac4e39046e2b5573b589c408"
+      "bytes": 181440,
+      "sha256": "460c1a08f0f7e411706c6a97bcb486bfb00687434c90803dc9fc22606b8bdb0a"
     },
     {
       "file": "modulos/estudio_v5/INTEGRACION_PHOTOCRAFT.txt",
@@ -289,8 +289,8 @@
     },
     {
       "file": "modulos/estudio_v5/design_engine.js",
-      "bytes": 12775,
-      "sha256": "9ef096ab79d3e16197693d380a620a883516ae8cc2ef96d59429105a345f0fea"
+      "bytes": 12939,
+      "sha256": "97d2663de96c8582156831426132a8ce35bffb3ac32588ac9b2b110455cdd1e7"
     },
     {
       "file": "docs/APENDICE_DISENO_1_3.md",
@@ -324,8 +324,8 @@
     },
     {
       "file": "qa/video_motion.cjs",
-      "bytes": 5032,
-      "sha256": "153e27a419126efc4d42598161bc852ccf0874d0d48959903ecb519f7797ebee"
+      "bytes": 5144,
+      "sha256": "13432276f078794830753ab98d71c8e3fd04fcf31ec9db6f3d829e88df055b62"
     },
     {
       "file": "qa/video_export.cjs",
@@ -339,8 +339,8 @@
     },
     {
       "file": "scripts/qa_all.py",
-      "bytes": 1086,
-      "sha256": "775bef65d20a931f6d29f9137c8bacfa1967a240bf977a6780d3e367464fd9a3"
+      "bytes": 1266,
+      "sha256": "5045a81f83440ede6311261c501744a90b8dfc966108b84c1be9a0dfdb8390b9"
     },
     {
       "file": "docs/AUDITORIA_1_3_1.md",
@@ -349,18 +349,18 @@
     },
     {
       "file": "js/layer_motion.js",
-      "bytes": 10568,
-      "sha256": "5fb6ef4662e8ac0c2228049cd9355ffca21422b332c6c41dd8088b122eb48fdf"
+      "bytes": 12353,
+      "sha256": "dcf854a29b1bde7df6d9cd28e9796bf9a621b898a56c6e3126283bfde4b4e31a"
     },
     {
       "file": "scripts/build_portable.py",
       "bytes": 3598,
-      "sha256": "8839972995f1f9748289cc3ae039709e9c32e4e1b1854b1b28c842ef1273c31b"
+      "sha256": "eb1e5894f87bdfea5bc41d6aef65984310bb1e03a0345d62b741c705a85e8877"
     },
     {
       "file": "qa/layer_motion.cjs",
-      "bytes": 3852,
-      "sha256": "57c2b1dc084f9e42ed3b129cd371fbec89f61e5b3f65a61492030401600cf0bd"
+      "bytes": 3968,
+      "sha256": "cd04eca6cd8bcc77fd3e1da730e22ad888892655dfdea6cbe97fc536eaaf2206"
     },
     {
       "file": "qa/scene_bridge.cjs",
@@ -370,27 +370,57 @@
     {
       "file": "qa/portable_package.py",
       "bytes": 1796,
-      "sha256": "2e0e40689a31fac733037edf86db591d4ea5330809eb3df8699605ac546a3d93"
+      "sha256": "3692252989a4ab99713ab12015fd667ec111c3eb4f7e895a4151d532bedd8f1f"
     },
     {
       "file": "qa/browser_audit.js",
-      "bytes": 7680,
-      "sha256": "d7d0e9aa0569899cd260da93a9915834955819e7fb87691d3146504647956a1c"
+      "bytes": 9124,
+      "sha256": "805d3e09a81072a84f70a97974a0fc60ab29b164172be4725bb55026505bb0e6"
     },
     {
       "file": "STUDIOART_PORTATIL.html",
-      "bytes": 3704177,
-      "sha256": "350357edd8e5a7e4e01b0a5c53dc9c2b936383c80b6c91de81a2ff584556bef8"
+      "bytes": 3761781,
+      "sha256": "63eb2a66ef0d2d7ae8bd409ffe614579356bd51a239600766901680e1b5a2aa2"
     },
     {
       "file": "AUDITORIA_AUTOMATICA.html",
-      "bytes": 3819457,
-      "sha256": "6f5d520fb6e14a81f182bc9307e3ff37cbd28df0ad85c27631d499c853b20fd9"
+      "bytes": 3884867,
+      "sha256": "44b83aa30f1ee157382a7fb27627da961ee0425fe4956dd56e46d466175bc623"
     },
     {
       "file": "docs/AUDITORIA_1_3_2.md",
       "bytes": 8636,
       "sha256": "54ed39a7f6212c974693e9840dc777ca5f645f774bd90e6a661be9e65e9d75db"
+    },
+    {
+      "file": "qa/studio_roll_motion.cjs",
+      "bytes": 5977,
+      "sha256": "b58f45c1397c25b39ec68ed75b47153a38421f05adee1e9b2cb9465f7d6ba9b0"
+    },
+    {
+      "file": "qa/legacy_seed4.cjs",
+      "bytes": 1635,
+      "sha256": "2eed97f69a6cdb7108447dea0497ceba761a5f47c1633025cf1e8165521426b2"
+    },
+    {
+      "file": "docs/AUDITORIA_1_3_3.md",
+      "bytes": 5869,
+      "sha256": "8dfa46fb1274bd983065c62a68421fbb1f0a19d1949c477ff292f24052549b34"
+    },
+    {
+      "file": "modulos/estudio_v5/contour_design.js",
+      "bytes": 7595,
+      "sha256": "27c3fec793f692858a88e698f90d180623f6c95b6e74c83cee2a6e2029524547"
+    },
+    {
+      "file": "qa/structural_design.cjs",
+      "bytes": 6900,
+      "sha256": "156f975a8f17a9cf83c68061c3b4fc3cd30d1d33bb70847a0a7303b4d079c54a"
+    },
+    {
+      "file": "docs/AUDITORIA_1_3_4.md",
+      "bytes": 6608,
+      "sha256": "a332934e10c93ebb43f81388b6b925c993b9952a7f29119e600da1a28bb5fc61"
     }
   ]
 }

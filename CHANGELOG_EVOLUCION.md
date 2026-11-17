@@ -14,3 +14,8 @@ Entrada portátil, diagnóstico de carga, planos persistentes, doce efectos nuev
 - 1.2.8 en desarrollo · Reconstrucción de EVO-05 (avance histórico `10dc070`). Biblioteca conserva carpeta, filtros, página y selección al recargar o importar el proyecto maestro.
 - 1.2.9 en desarrollo · Estudio arregla el logo y la calibración, edita fondos de texto y añade análisis Sobel y malla Delaunay. Recupera cinco efectos de Cámara del avance 1.2.7-motion.1 sobre Biblioteca 1.2.8.
 - 1.3.0 · Motor de diseño de 18 familias, paletas y mapas derivados de referencia local, composición por canales de semilla, formato libre, formas editables y primitivas optimizadas con SVG.
+
+
+## 1.3.4 · 2026-11-17
+
+Diseño único seed-6, diez estructuras, seis tratamientos y contornos conectados. Play con reloj, bucle, pausa y recuperación. Cuatro efectos nuevos compartidos con Video, alineación de capas y formatos de proyecto/look compatibles con una o cuatro composiciones. Ver `docs/AUDITORIA_1_3_4.md`.

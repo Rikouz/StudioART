@@ -112,7 +112,7 @@ const StudioDesign=(()=>{
     return Math.max(0,Math.min(a.x+a.w,b.x+b.w)-Math.max(a.x,b.x))*
       Math.max(0,Math.min(a.y+a.h,b.y+b.h)-Math.max(a.y,b.y));
   }
-  function placement({profile,map,reference,reserved,random,size,index,modern=false}){
+  function placement({profile,map,reference,reserved,random,size,index,modern=false,diverse=null}){
     let best=null;
     // Compare positions in distinct bands per proposal, plus centrally aligned options.
     const rows=index%2?[.58,.72,.42,.20,.08]:[.08,.19,.35,.58,.73];
@@ -125,7 +125,8 @@ const StudioDesign=(()=>{
       const blocked=reserved.reduce((sum,box)=>sum+overlap(candidate,box),0)/Math.max(.01,width*h);
       const noise=region(modern?map:map?{...map,integral:null}:null,candidate);
       const ref=reference?region(modern?reference:{...reference,integral:null},candidate):0;
-      const score=blocked*14+noise*2+ref*.60+row*.058+col*.004+random()*.10;
+      const repetition=diverse?diverse.reduce((n,z)=>n+overlap(candidate,z)/Math.max(.01,Math.min(candidate.w*candidate.h,z.w*z.h)),0):0;
+      const score=blocked*14+noise*2+ref*.60+row*.058+col*.004+random()*.10+repetition*5;
       if(!best||score<best.score)best={...candidate,score};
     }
     return best;

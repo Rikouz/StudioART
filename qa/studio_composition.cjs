@@ -155,6 +155,7 @@ async function main(){
   assert.deepEqual(pixels(preview,...point),[16,25,22,255]);
   input('boxOpacity',0);
   assert.deepEqual(pixels(preview,...point),original);
+  run("syncActive();comps.push({...comps[0],_visual:{...comps[0]._visual,logoSize:'18'}});drawAll()");
   elements.get('variants').children[1].onclick();
   assert.equal(elements.get('logoSize').value,'18');
   elements.get('variants').children[0].onclick();
@@ -207,8 +208,8 @@ async function main(){
   run("$('generate').onclick()");
   const recipe=()=>run("JSON.stringify(snapshotLook())");
   const firstRecipe=recipe(),firstImage=renderPng();
-  assert.equal(JSON.parse(firstRecipe).proposals.length,4);
-  assert.equal(run('variation.engine'),'msccs-seed-4');
+  assert.equal(JSON.parse(firstRecipe).proposals.length,1);
+  assert.equal(run('variation.engine'),'msccs-seed-6');
   assert.ok(JSON.parse(firstRecipe).proposals.some(item=>item.generated.length));
   run("$('repeatDesign').onclick()");
   assert.equal(recipe(),firstRecipe);
@@ -275,7 +276,7 @@ async function main(){
   for(const family of families){
     input('designFamily',family);input('designSeed',12);run("$('generate').onclick()");
     const value=JSON.parse(recipe());
-    assert.equal(value.proposals.length,4);
+    assert.equal(value.proposals.length,1);
     assert.ok(value.proposals.every(item=>Number.isFinite(item.tx)&&item.tx>=0&&item.tx<=1));
   }
   run("studioPro=true;showGuides=true;drawAll()");
