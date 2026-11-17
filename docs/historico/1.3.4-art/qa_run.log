@@ -1,0 +1,36 @@
+PASS: version 1.3.4; 84 rutas del manifiesto íntegras; JSON de campaña y efectos válidos
+PASS: sintaxis de 29 archivos JavaScript
+PASS: source release contains no raster/video/audio files, embedded base64 media, archives or environment files.
+PASS: version 1.3.4; 84 rutas del manifiesto íntegras; JSON de campaña y efectos válidos
+PASS: sintaxis de 29 archivos JavaScript
+PASS: source release contains no raster/video/audio files, embedded base64 media, archives or environment files.
+AVISO: modulos/editorial_v10/ABRIR_PRIMERO.html:1 · a[href] → VISOR_THANKSGIVING_V9_CON_ACCESO_V10.html · visor opcional ausente
+68 referencias locales · 0 errores · 1 avisos
+PASS: portátiles sin scripts/estilos/módulos externos; 5 marcos, 74 scripts compilados, JSON y fuentes integrados.
+PASS: Biblioteca con 5,249 imágenes mantiene 48 miniaturas por página, restaura carpeta, filtros y selección, conserva ID y receta en Estudio y abre JSON anteriores.
+PASS: Cámara espera la revisión en PNG, GIF y WebM, mantiene ajustes y fotogramas durante la exportación y rechaza imágenes dañadas.
+PASS: PNG y video esperan la revisión, el video la conserva y se rechazan imágenes fallidas o reemplazadas durante la carga.
+PASS: motor incremental/worker, semillas, alfa, rotación, error monótono, cancelación y limpieza.
+PASS: treinta familias, sumas de actividad, márgenes inferidos y bandas de espacio libre.
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '@napi-rs/canvas'
+Require stack:
+- /mnt/data/studioart134_audit/source/qa/studio_composition.cjs
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/mnt/data/studioart134_audit/source/qa/studio_composition.cjs:6:40)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/mnt/data/studioart134_audit/source/qa/studio_composition.cjs' ]
+}
+
+Node.js v22.16.0

@@ -1,0 +1,23 @@
+STUDIOART 1.3.4 - AUDITORÍA Y PLAN ART
+Fecha: 17-11-2026
+Base inspeccionada: STUDIOART_1_3_4_DISENO_UNICO_Y_CONTOUR.zip
+SHA256 de la base: c002fd1e02e4a5efaf9d1432bd55a7ca42369e851b49d5468f86500405dedfb3
+
+CONTENIDO
+- AUDITORIA_STUDIOART_1_3_4_ART.pdf: informe para leer/compartir.
+- AUDITORIA_TECNICA_STUDIOART_1_3_4.md: detalle técnico con rutas y recomendaciones.
+- PLAN_EJECUCION_ART_134.md: 31 tickets con fases, dependencias y aceptación.
+- BACKLOG_ART_134_A_140.csv/.json: tareas importables a un gestor de proyectos.
+- CONTRATO_DE_MOTORES_ART_V5.md: esquema propuesto de scene graph, seed-7, render y tipografía.
+- MATRIZ_QA_VISUAL_48_CASOS.csv: 48 casos PENDIENTES de aceptación visual.
+- EVIDENCIA_CODIGO_134.json: metadatos obtenidos directamente del ZIP.
+- qa_run.log / qa_independent.log / chromium_attempt.log: trazas de comprobación.
+- video_contact_sheet.jpg: selección de fotogramas de la grabación de Geometric.
+
+ALCANCE
+1. Auditoría NO ha cambiado StudioART ni sus proyectos. Es análisis y plan.
+2. Las pruebas integrales nativas Canvas y Chrome/Edge Windows siguen pendientes.
+3. La comparación de Geometric es funcional/visual, no copia de código propietario.
+4. La versión StudioART 1.3.4 se conserva como baseline; no volver a la V3 del carrusel.
+5. Para empezar implementación: SA-000, SA-001, SA-004, SA-005, SA-006 y SA-007,
+   verificando compatibilidad seed-6 y estilos originales en cada gate.

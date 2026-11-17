@@ -1,0 +1,18 @@
+camera_effects.cjs              SKIP (falta @napi-rs/canvas)
+camera_revision.cjs             PASS: Cámara espera la revisión en PNG, GIF y WebM, mantiene ajustes y fotogramas durante la exportación y rechaza imágenes dañadas.
+carousel_revision.cjs           PASS: PNG y video esperan la revisión, el video la conserva y se rechazan imágenes fallidas o reemplazadas durante la carga.
+design_maps.cjs                 PASS: treinta familias, sumas de actividad, márgenes inferidos y bandas de espacio libre.
+layer_motion.cjs                SKIP (falta @napi-rs/canvas)
+legacy_seed3.cjs                
+Node.js v22.16.0
+legacy_seed4.cjs                  requireStack: [ '/mnt/data/studioart134_audit/source/qa/legacy_seed4.cjs' ]
+}
+library_persistence.cjs         PASS: Biblioteca con 5,249 imágenes mantiene 48 miniaturas por página, restaura carpeta, filtros y selección, conserva ID y receta en Estudio y abre JSON anteriores.
+primitive_engine.cjs            PASS: motor incremental/worker, semillas, alfa, rotación, error monótono, cancelación y limpieza.
+scene_bridge.cjs                PASS: Biblioteca conserva planos al crear/revisar la misma pieza, con ID estable y envío/restauración en Video.
+structural_design.cjs           SKIP (falta @napi-rs/canvas)
+studio_composition.cjs          SKIP (falta @napi-rs/canvas)
+studio_roll_motion.cjs            requireStack: [ '/mnt/data/studioart134_audit/source/qa/studio_roll_motion.cjs' ]
+}
+video_export.cjs                PASS: carga previa diferida, revisiones reemplazadas/dañadas, primer cuadro preparado, revisiones diferidas durante exportación y margen de mezcla de audio.
+video_motion.cjs                SKIP (falta @napi-rs/canvas)

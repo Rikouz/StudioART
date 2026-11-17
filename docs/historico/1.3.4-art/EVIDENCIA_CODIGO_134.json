@@ -1,0 +1,96 @@
+{
+  "source": "STUDIOART_1_3_4_DISENO_UNICO_Y_CONTOUR.zip",
+  "sha256": "c002fd1e02e4a5efaf9d1432bd55a7ca42369e851b49d5468f86500405dedfb3",
+  "source_size_bytes": 3727715,
+  "archive_entries": 110,
+  "version": "1.3.4",
+  "design_families": {
+    "count": 30,
+    "ids": [
+      "catalog",
+      "industrial",
+      "technical",
+      "editorial",
+      "minimal",
+      "workshop",
+      "outdoor",
+      "cinema",
+      "mono",
+      "duotone",
+      "graphic",
+      "gradient",
+      "paper",
+      "contrast",
+      "geo",
+      "geoSoft",
+      "retro",
+      "collage",
+      "swiss",
+      "brutal",
+      "architect",
+      "workwear",
+      "journal",
+      "botanical",
+      "precision",
+      "gallery",
+      "screenprint",
+      "modular",
+      "night",
+      "atelier"
+    ]
+  },
+  "architectures": {
+    "count": 10,
+    "ids": [
+      "full",
+      "window",
+      "split",
+      "band",
+      "triptych",
+      "mosaic",
+      "circle",
+      "diagonal",
+      "contact",
+      "inset"
+    ]
+  },
+  "treatments": {
+    "count": 6,
+    "ids": [
+      "photo",
+      "contours",
+      "engraving",
+      "pixels",
+      "duo",
+      "ribbons"
+    ]
+  },
+  "studio_html_lines": 2519,
+  "source_design_engine_lines": 216,
+  "contour_engine_lines": 124,
+  "seed_engine": "msccs-seed-6",
+  "seed_channels": "'layout','color','field'",
+  "seed6_disables_legacy_fields": true,
+  "contour_full_frame_composite": true,
+  "static_architecture_rects": true,
+  "analysis_proxy": {
+    "design": "42x94 (máximo aproximado)",
+    "contour": "110x150 (máximo aproximado)"
+  },
+  "headlined_font": "Saira Semi Condensed",
+  "layer_text_fonts": [
+    "Saira Semi Condensed",
+    "IBM Plex Sans"
+  ],
+  "motion_export": {
+    "method": "Canvas.captureStream(0) + MediaRecorder",
+    "is_screen_capture": false,
+    "real_time_encoding": true,
+    "video_short_side_px": 720
+  },
+  "source_has_no_git_history": true,
+  "qa_constraints": [
+    "@napi-rs/canvas ausente del entorno",
+    "navegador Chromium sin salida validable"
+  ]
+}

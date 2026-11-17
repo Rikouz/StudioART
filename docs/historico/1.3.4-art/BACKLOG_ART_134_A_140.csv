@@ -1,0 +1,32 @@
+﻿ID,Fase,Prioridad,Tarea,Archivos_base,Dependencias,Criterio_de_aceptación
+SA-000,G0,P0,"Congelar baseline 1.3.4, SHA y motor legacy",VERSION_SUPREMO.json; package; scripts/prepare_source.py,-,"Zip intacto, commit base propio, rutas y manifest sin cambios; rollback verificado"
+SA-001,G0,P0,"QA Chrome/Edge Windows real, file:// y flujo de publicación",AUDITORIA_AUTOMATICA.html; qa/; STUDIOART_PORTATIL.html,SA-000,Capturas verificadas de importar/diseñar/guardar/reabrir/PNG/GIF/MP4 y logs sin errores
+SA-002,G0,P0,"Fixtures con 18 muestras, foto limpia, producto aislado y audio",qa/fixtures; docs/MATRIZ_QA_OFFLINE_SUPREMO.md,SA-000,"Al menos 6 clases de activo, máscara SKU manual, hashes, derechos documentados"
+SA-003,G0,P0,QA de comparación visual y medidas de diversidad,qa/structural_design.cjs; nuevo qa/art_quality,SA-002,"Reporte: layout IoU, legibilidad, saliencia, contraste, clipping y diferencias de geometría, no solo píxeles"
+SA-004,G1,P0,Unificar coordenadas fuente/mundo/lienzo y matrices,modulos/estudio_v5/ESTUDIO_V5.html; contour_design.js,SA-000,"Cada nodo recibe sourceTransform y canvasTransform; tests 9:16,4:5,1:1,16:9"
+SA-005,G1,P0,Overlay de contornos por máscara y ventana,contour_design.js; ESTUDIO_V5.html:cover,SA-004,Split/circle/triptych/contact sin trazos fantasmas ni desalineación
+SA-006,G1,P0,Crear SignalGraph e integrar fx heredados como nodos,design_engine.js; ESTUDIO_V5.html:overlayEffects; js/layer_motion.js,SA-004,3 capas geométricas independientes activables y ordenables sin pérdida seed-6
+SA-007,G1,P0,Eliminar apagado forzado del legado para rutas seed-7,ESTUDIO_V5.html:generateStructuralDesign,SA-006,seed-6 old PNG hashes intactos; nuevo look combine nodes/grid/contour/dither
+SA-008,G1,P1,Separar monolito HTML y overrides de render,ESTUDIO_V5.html; js/; scripts/build_portable.py,SA-004,"Fuentes modularizadas con salida PORTATIL idéntica, old projects abren"
+SA-009,G2,P0,Mapa de señal multiescala y campos Sobel NMS curvatura,contour_design.js; nuevo js/geometry_analysis.js,SA-005,"Mapas a múltiples escalas, reproducciones iguales, comparados con fixture de alta frecuencia"
+SA-010,G2,P0,Render vectorial/tiled de contornos a 1080/4K,contour_design.js; nuevo js/contour_renderer.js,SA-009,Sin pérdida de detalle ni costuras en tiles; parámetros normalizados a 1080
+SA-011,G2,P1,Conexiones por borde y motivos ancla,ESTUDIO_V5.html:FieldFX; nuevo js/connection_motifs.js,SA-009;SA-006,"Proximidad,Delaunay,Chain,radial,ortogonal + confidence; curvas, arcos y nodos de tamaño jerárquico"
+SA-012,G2,P1,Retícula recursiva según imagen y espacio negativo,contour_design.js; nuevo js/layout_grammar.js,SA-009,"4 composiciones estructuralmente distintas, sin cortar un SKU protegido"
+SA-013,G2,P1,Familias de impresión y memoria desarrolladas,contour_design.js; nuevo js/print_surface.js,SA-009;SA-006,"Atkinson/Floyd/Bayer/BlueNoise, Ink/Paper, ecos, ventanas y glyph cloud configurables"
+SA-014,G2,P1,Contornos y grabado temporal con campos coherentes,js/layer_motion.js; contour_design.js,SA-009,"Flujos continuos sin blinking, tiempo cero fijo, frame t reproducible"
+SA-015,G3,P0,"Modelo TextNode con runs, cajas y constraints",ESTUDIO_V5.html:drawHeadline/layerUI; nuevo js/text_model.js,SA-008,"Contenido exacto UTF-8, 2 fuentes originales, preservación legacy y edición reversible"
+SA-016,G3,P0,GlyphGeometry y tipografía como fuente de máscaras,nuevo js/text_geometry.js; fuentes bajo licencias existentes,SA-015,"Texto en path/máscara; per-letra transform; acentos, números, teléfono y SKU idénticos"
+SA-017,G3,P1,10 programas tipográficos creativos,nuevo js/text_effects.js,SA-016;SA-006,"Letter Grid, Word Collage, TypePath, Knockout, Contour, Modular, Echo, Split, SignalGlyph, Kinetic"
+SA-018,G3,P1,Tipografía animada en Video/Carrusel,js/layer_motion.js; js/video_export.js; js/carousel.js,SA-017,"Keyframes por palabra/caracter, sin texto inventado; mismo render en export"
+SA-019,G4,P0,Motor msccs-seed-7 versionado con 9 dominios,ESTUDIO_V5.html; nuevo js/seed_v7.js,SA-006;SA-012;SA-015,"Hash por canal, source/version/asset; seeds 1-6 reproducidos sin cambios"
+SA-020,G4,P1,Selección de variantes basada en calidad y diversidad,nuevo js/design_candidate_scorer.js,SA-019;SA-003,"1 diseño por pulsación; comparar cuatro opcional, scores y causas visibles, filtros QA"
+SA-021,G4,P1,"Guardar looks, máscaras, semillas y operadores por capa",ESTUDIO_V5.html:snapshotStudio/restoreStudio; js/storage.js,SA-019,Reabrir y obtener mismos píxeles/cajas; proyecto anterior migrado no destructivamente
+SA-022,G5,P0,"Máscaras, oclusiones y protección de producto separadas",ESTUDIO_V5.html:productPlacement/drawIntegratedProduct; nuevo js/mask_graph.js,SA-004;SA-021,"SKU oficial intacto, sin halo, sombra de contacto, manos y suelo coherentes"
+SA-023,G5,P1,Seguidor sujeto y selección manual progresiva,nuevo js/subject_mask.js; SceneGraph,SA-022,Mascarilla editable sobre foto plana; no depender de modelo remoto para abrir offline
+SA-024,G5,P1,"Editor de capas completo: groups, blend, masks, snapping",ESTUDIO_V5.html:render/layerUI; nuevo js/layer_graph.js,SA-006;SA-016,"Undo/redo de transform/propiedades, máscaras, grupos y bloqueos sin desplazamientos"
+SA-025,G5,P1,RenderAt(t) puro compartido y timeline multipista,js/layer_motion.js; js/browser_render.js; js/video_export.js,SA-006;SA-021,"Mismo frame a mismo tiempo/semilla en preview/PNG/MP4, con perfil medido"
+SA-026,G5,P1,Export frame-accurate WebCodecs/FFmpeg local opcional,js/browser_render.js; nuevo js/render_queue.js,SA-025,"1080 y 4K condicionados por equipo; fps/timestamps, audio y duración verificados; fallback claro"
+SA-027,G5,P2,QA cromático y fotométrico de integración,ESTUDIO_V5.html:sceneReference/productLook; nuevo qa/product_fidelity,SA-022,"Superposición antes/después, color, etiquetas, cajones, ruedas, QR, texto verificable"
+SA-028,G5,P2,Proyecto portátil con assets SHA y relink,js/storage.js; scripts/build_portable.py,SA-021,JSON/ZIP reabre sin conexión y reporta media ausentes; sin base64 masivo
+SA-029,G6,P0,Matriz visual de 48 combinaciones + QA SKU,qa/; docs/; fixtures aprobados,SA-020;SA-024;SA-026,4 ratios x 4 estilos x 3 tipos de contenido; revisión visual humana y código reproducible
+SA-030,G6,P0,Aceptación publicable y regresión legacy,STUDIOART_PORTATIL.html; ABRIR_SIN_SERVIDOR.html,SA-029,"Chrome/Edge Win: import/edición/seed/export/reopen/publicación, rollback, seguridad; sin fallas críticas"

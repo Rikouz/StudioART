@@ -1,0 +1,281 @@
+[
+  {
+    "ID": "SA-000",
+    "Fase": "G0",
+    "Prioridad": "P0",
+    "Tarea": "Congelar baseline 1.3.4, SHA y motor legacy",
+    "Archivos_base": "VERSION_SUPREMO.json; package; scripts/prepare_source.py",
+    "Dependencias": "-",
+    "Criterio_de_aceptación": "Zip intacto, commit base propio, rutas y manifest sin cambios; rollback verificado"
+  },
+  {
+    "ID": "SA-001",
+    "Fase": "G0",
+    "Prioridad": "P0",
+    "Tarea": "QA Chrome/Edge Windows real, file:// y flujo de publicación",
+    "Archivos_base": "AUDITORIA_AUTOMATICA.html; qa/; STUDIOART_PORTATIL.html",
+    "Dependencias": "SA-000",
+    "Criterio_de_aceptación": "Capturas verificadas de importar/diseñar/guardar/reabrir/PNG/GIF/MP4 y logs sin errores"
+  },
+  {
+    "ID": "SA-002",
+    "Fase": "G0",
+    "Prioridad": "P0",
+    "Tarea": "Fixtures con 18 muestras, foto limpia, producto aislado y audio",
+    "Archivos_base": "qa/fixtures; docs/MATRIZ_QA_OFFLINE_SUPREMO.md",
+    "Dependencias": "SA-000",
+    "Criterio_de_aceptación": "Al menos 6 clases de activo, máscara SKU manual, hashes, derechos documentados"
+  },
+  {
+    "ID": "SA-003",
+    "Fase": "G0",
+    "Prioridad": "P0",
+    "Tarea": "QA de comparación visual y medidas de diversidad",
+    "Archivos_base": "qa/structural_design.cjs; nuevo qa/art_quality",
+    "Dependencias": "SA-002",
+    "Criterio_de_aceptación": "Reporte: layout IoU, legibilidad, saliencia, contraste, clipping y diferencias de geometría, no solo píxeles"
+  },
+  {
+    "ID": "SA-004",
+    "Fase": "G1",
+    "Prioridad": "P0",
+    "Tarea": "Unificar coordenadas fuente/mundo/lienzo y matrices",
+    "Archivos_base": "modulos/estudio_v5/ESTUDIO_V5.html; contour_design.js",
+    "Dependencias": "SA-000",
+    "Criterio_de_aceptación": "Cada nodo recibe sourceTransform y canvasTransform; tests 9:16,4:5,1:1,16:9"
+  },
+  {
+    "ID": "SA-005",
+    "Fase": "G1",
+    "Prioridad": "P0",
+    "Tarea": "Overlay de contornos por máscara y ventana",
+    "Archivos_base": "contour_design.js; ESTUDIO_V5.html:cover",
+    "Dependencias": "SA-004",
+    "Criterio_de_aceptación": "Split/circle/triptych/contact sin trazos fantasmas ni desalineación"
+  },
+  {
+    "ID": "SA-006",
+    "Fase": "G1",
+    "Prioridad": "P0",
+    "Tarea": "Crear SignalGraph e integrar fx heredados como nodos",
+    "Archivos_base": "design_engine.js; ESTUDIO_V5.html:overlayEffects; js/layer_motion.js",
+    "Dependencias": "SA-004",
+    "Criterio_de_aceptación": "3 capas geométricas independientes activables y ordenables sin pérdida seed-6"
+  },
+  {
+    "ID": "SA-007",
+    "Fase": "G1",
+    "Prioridad": "P0",
+    "Tarea": "Eliminar apagado forzado del legado para rutas seed-7",
+    "Archivos_base": "ESTUDIO_V5.html:generateStructuralDesign",
+    "Dependencias": "SA-006",
+    "Criterio_de_aceptación": "seed-6 old PNG hashes intactos; nuevo look combine nodes/grid/contour/dither"
+  },
+  {
+    "ID": "SA-008",
+    "Fase": "G1",
+    "Prioridad": "P1",
+    "Tarea": "Separar monolito HTML y overrides de render",
+    "Archivos_base": "ESTUDIO_V5.html; js/; scripts/build_portable.py",
+    "Dependencias": "SA-004",
+    "Criterio_de_aceptación": "Fuentes modularizadas con salida PORTATIL idéntica, old projects abren"
+  },
+  {
+    "ID": "SA-009",
+    "Fase": "G2",
+    "Prioridad": "P0",
+    "Tarea": "Mapa de señal multiescala y campos Sobel NMS curvatura",
+    "Archivos_base": "contour_design.js; nuevo js/geometry_analysis.js",
+    "Dependencias": "SA-005",
+    "Criterio_de_aceptación": "Mapas a múltiples escalas, reproducciones iguales, comparados con fixture de alta frecuencia"
+  },
+  {
+    "ID": "SA-010",
+    "Fase": "G2",
+    "Prioridad": "P0",
+    "Tarea": "Render vectorial/tiled de contornos a 1080/4K",
+    "Archivos_base": "contour_design.js; nuevo js/contour_renderer.js",
+    "Dependencias": "SA-009",
+    "Criterio_de_aceptación": "Sin pérdida de detalle ni costuras en tiles; parámetros normalizados a 1080"
+  },
+  {
+    "ID": "SA-011",
+    "Fase": "G2",
+    "Prioridad": "P1",
+    "Tarea": "Conexiones por borde y motivos ancla",
+    "Archivos_base": "ESTUDIO_V5.html:FieldFX; nuevo js/connection_motifs.js",
+    "Dependencias": "SA-009;SA-006",
+    "Criterio_de_aceptación": "Proximidad,Delaunay,Chain,radial,ortogonal + confidence; curvas, arcos y nodos de tamaño jerárquico"
+  },
+  {
+    "ID": "SA-012",
+    "Fase": "G2",
+    "Prioridad": "P1",
+    "Tarea": "Retícula recursiva según imagen y espacio negativo",
+    "Archivos_base": "contour_design.js; nuevo js/layout_grammar.js",
+    "Dependencias": "SA-009",
+    "Criterio_de_aceptación": "4 composiciones estructuralmente distintas, sin cortar un SKU protegido"
+  },
+  {
+    "ID": "SA-013",
+    "Fase": "G2",
+    "Prioridad": "P1",
+    "Tarea": "Familias de impresión y memoria desarrolladas",
+    "Archivos_base": "contour_design.js; nuevo js/print_surface.js",
+    "Dependencias": "SA-009;SA-006",
+    "Criterio_de_aceptación": "Atkinson/Floyd/Bayer/BlueNoise, Ink/Paper, ecos, ventanas y glyph cloud configurables"
+  },
+  {
+    "ID": "SA-014",
+    "Fase": "G2",
+    "Prioridad": "P1",
+    "Tarea": "Contornos y grabado temporal con campos coherentes",
+    "Archivos_base": "js/layer_motion.js; contour_design.js",
+    "Dependencias": "SA-009",
+    "Criterio_de_aceptación": "Flujos continuos sin blinking, tiempo cero fijo, frame t reproducible"
+  },
+  {
+    "ID": "SA-015",
+    "Fase": "G3",
+    "Prioridad": "P0",
+    "Tarea": "Modelo TextNode con runs, cajas y constraints",
+    "Archivos_base": "ESTUDIO_V5.html:drawHeadline/layerUI; nuevo js/text_model.js",
+    "Dependencias": "SA-008",
+    "Criterio_de_aceptación": "Contenido exacto UTF-8, 2 fuentes originales, preservación legacy y edición reversible"
+  },
+  {
+    "ID": "SA-016",
+    "Fase": "G3",
+    "Prioridad": "P0",
+    "Tarea": "GlyphGeometry y tipografía como fuente de máscaras",
+    "Archivos_base": "nuevo js/text_geometry.js; fuentes bajo licencias existentes",
+    "Dependencias": "SA-015",
+    "Criterio_de_aceptación": "Texto en path/máscara; per-letra transform; acentos, números, teléfono y SKU idénticos"
+  },
+  {
+    "ID": "SA-017",
+    "Fase": "G3",
+    "Prioridad": "P1",
+    "Tarea": "10 programas tipográficos creativos",
+    "Archivos_base": "nuevo js/text_effects.js",
+    "Dependencias": "SA-016;SA-006",
+    "Criterio_de_aceptación": "Letter Grid, Word Collage, TypePath, Knockout, Contour, Modular, Echo, Split, SignalGlyph, Kinetic"
+  },
+  {
+    "ID": "SA-018",
+    "Fase": "G3",
+    "Prioridad": "P1",
+    "Tarea": "Tipografía animada en Video/Carrusel",
+    "Archivos_base": "js/layer_motion.js; js/video_export.js; js/carousel.js",
+    "Dependencias": "SA-017",
+    "Criterio_de_aceptación": "Keyframes por palabra/caracter, sin texto inventado; mismo render en export"
+  },
+  {
+    "ID": "SA-019",
+    "Fase": "G4",
+    "Prioridad": "P0",
+    "Tarea": "Motor msccs-seed-7 versionado con 9 dominios",
+    "Archivos_base": "ESTUDIO_V5.html; nuevo js/seed_v7.js",
+    "Dependencias": "SA-006;SA-012;SA-015",
+    "Criterio_de_aceptación": "Hash por canal, source/version/asset; seeds 1-6 reproducidos sin cambios"
+  },
+  {
+    "ID": "SA-020",
+    "Fase": "G4",
+    "Prioridad": "P1",
+    "Tarea": "Selección de variantes basada en calidad y diversidad",
+    "Archivos_base": "nuevo js/design_candidate_scorer.js",
+    "Dependencias": "SA-019;SA-003",
+    "Criterio_de_aceptación": "1 diseño por pulsación; comparar cuatro opcional, scores y causas visibles, filtros QA"
+  },
+  {
+    "ID": "SA-021",
+    "Fase": "G4",
+    "Prioridad": "P1",
+    "Tarea": "Guardar looks, máscaras, semillas y operadores por capa",
+    "Archivos_base": "ESTUDIO_V5.html:snapshotStudio/restoreStudio; js/storage.js",
+    "Dependencias": "SA-019",
+    "Criterio_de_aceptación": "Reabrir y obtener mismos píxeles/cajas; proyecto anterior migrado no destructivamente"
+  },
+  {
+    "ID": "SA-022",
+    "Fase": "G5",
+    "Prioridad": "P0",
+    "Tarea": "Máscaras, oclusiones y protección de producto separadas",
+    "Archivos_base": "ESTUDIO_V5.html:productPlacement/drawIntegratedProduct; nuevo js/mask_graph.js",
+    "Dependencias": "SA-004;SA-021",
+    "Criterio_de_aceptación": "SKU oficial intacto, sin halo, sombra de contacto, manos y suelo coherentes"
+  },
+  {
+    "ID": "SA-023",
+    "Fase": "G5",
+    "Prioridad": "P1",
+    "Tarea": "Seguidor sujeto y selección manual progresiva",
+    "Archivos_base": "nuevo js/subject_mask.js; SceneGraph",
+    "Dependencias": "SA-022",
+    "Criterio_de_aceptación": "Mascarilla editable sobre foto plana; no depender de modelo remoto para abrir offline"
+  },
+  {
+    "ID": "SA-024",
+    "Fase": "G5",
+    "Prioridad": "P1",
+    "Tarea": "Editor de capas completo: groups, blend, masks, snapping",
+    "Archivos_base": "ESTUDIO_V5.html:render/layerUI; nuevo js/layer_graph.js",
+    "Dependencias": "SA-006;SA-016",
+    "Criterio_de_aceptación": "Undo/redo de transform/propiedades, máscaras, grupos y bloqueos sin desplazamientos"
+  },
+  {
+    "ID": "SA-025",
+    "Fase": "G5",
+    "Prioridad": "P1",
+    "Tarea": "RenderAt(t) puro compartido y timeline multipista",
+    "Archivos_base": "js/layer_motion.js; js/browser_render.js; js/video_export.js",
+    "Dependencias": "SA-006;SA-021",
+    "Criterio_de_aceptación": "Mismo frame a mismo tiempo/semilla en preview/PNG/MP4, con perfil medido"
+  },
+  {
+    "ID": "SA-026",
+    "Fase": "G5",
+    "Prioridad": "P1",
+    "Tarea": "Export frame-accurate WebCodecs/FFmpeg local opcional",
+    "Archivos_base": "js/browser_render.js; nuevo js/render_queue.js",
+    "Dependencias": "SA-025",
+    "Criterio_de_aceptación": "1080 y 4K condicionados por equipo; fps/timestamps, audio y duración verificados; fallback claro"
+  },
+  {
+    "ID": "SA-027",
+    "Fase": "G5",
+    "Prioridad": "P2",
+    "Tarea": "QA cromático y fotométrico de integración",
+    "Archivos_base": "ESTUDIO_V5.html:sceneReference/productLook; nuevo qa/product_fidelity",
+    "Dependencias": "SA-022",
+    "Criterio_de_aceptación": "Superposición antes/después, color, etiquetas, cajones, ruedas, QR, texto verificable"
+  },
+  {
+    "ID": "SA-028",
+    "Fase": "G5",
+    "Prioridad": "P2",
+    "Tarea": "Proyecto portátil con assets SHA y relink",
+    "Archivos_base": "js/storage.js; scripts/build_portable.py",
+    "Dependencias": "SA-021",
+    "Criterio_de_aceptación": "JSON/ZIP reabre sin conexión y reporta media ausentes; sin base64 masivo"
+  },
+  {
+    "ID": "SA-029",
+    "Fase": "G6",
+    "Prioridad": "P0",
+    "Tarea": "Matriz visual de 48 combinaciones + QA SKU",
+    "Archivos_base": "qa/; docs/; fixtures aprobados",
+    "Dependencias": "SA-020;SA-024;SA-026",
+    "Criterio_de_aceptación": "4 ratios x 4 estilos x 3 tipos de contenido; revisión visual humana y código reproducible"
+  },
+  {
+    "ID": "SA-030",
+    "Fase": "G6",
+    "Prioridad": "P0",
+    "Tarea": "Aceptación publicable y regresión legacy",
+    "Archivos_base": "STUDIOART_PORTATIL.html; ABRIR_SIN_SERVIDOR.html",
+    "Dependencias": "SA-029",
+    "Criterio_de_aceptación": "Chrome/Edge Win: import/edición/seed/export/reopen/publicación, rollback, seguridad; sin fallas críticas"
+  }
+]
